@@ -1,0 +1,45 @@
++<div class="container flixer-detail profile-style">
+    <div class="row">
+        <div class="col-sm-12 header-space">
+            <ng-breadcrumbs page-title="breadcrumbs.flixer.flixer-detail"></ng-breadcrumbs>
+        </div>
+        <div class="col-lg-12 col-sm-12 back-link">
+             <a ui-sref="root.home.flixer-admin.flixers" class="btn pull-right">{{"common.backButton" | translate}}</a>
+        </div>
+        <div class="col-lg-12 col-sm-12 profile hovercard card-fix">
+            <div class="col-lg-4 col-sm-6" >
+                <div class="avatar">
+                    <img cdn-src src="{{vm.user.profilePicture[0].entryId}}" width-k="200" height-k="200" type-k="1" >
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="detail-info">
+                    <div class="title">
+                        {{vm.user.contact.firstName}} {{vm.user.contact.lastName}}
+                    </div>
+                    <div class="desc">
+                        {{vm.user.address.full}}
+                    </div>
+                    <div class="desc">
+                        {{vm.user.contact.email}}
+                    </div>
+                    <div class="desc">
+                        {{vm.user.contact.phone}}
+                    </div>
+                    <div class="desc">
+                        <strong class="upper">{{vm.user.flixerPostulation.status}}</strong>
+                        <button type="button" class="btn btn-link" ng-click="vm.openStatusModal()" ng-show=vm.showStatusAction>
+                            {{"flixerDetail.changeStatus" | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12" >
+            <media-card ng-model="vm.user.flixerPostulation.workSample"></media-card>
+        </div>
+        <div class="col-lg-12 col-sm-12 back-link">
+            <a ui-sref="root.home.flixer-admin.flixers" class="btn pull-right">{{"common.backButton" | translate}}</a>
+        </div>
+    </div>
+</div>

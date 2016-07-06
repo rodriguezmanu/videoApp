@@ -1,0 +1,76 @@
+ng-breadcrumbs {
+    .heading-center {
+        text-align: left;
+        margin-bottom: 0;
+        &:after {
+            display: block;
+            content: '______';
+            color: #4BB0D9;
+            font-weight: 300;
+            font-size: 17px;
+        }
+    }
+}
+.breadcrumb {
+    background-color: transparent;
+    & > li.active {
+        color: #406da4;
+    }
+    a {
+        color: #7b7b7b;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: #406da4;
+        }
+    }
+    &.link-accent > li.active {
+        color: inherit;
+    }
+    &.link-accent a {
+        color: #406da4;
+    }
+    &.link-accent a:hover,
+    &.link-accent a:focus {
+        text-decoration: none;
+        color: #355987;
+    }
+    &.separator-arrow > li + li:before {
+        padding: 0 8px;
+        font-family: "FontAwesome";
+        content: '\f105';
+    }
+}
+
+.page-header {
+    padding: 5px 0;
+    margin: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+    .container {
+        position: relative;
+    }
+    .breadcrumb {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -18px;
+    }
+    &.one-column {
+        padding: 20px 0;
+    }
+    &.one-column .breadcrumb {
+        position: relative;
+        padding: 5px 0 0 0;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    ng-breadcrumbs,
+    .breadcrumb,
+    ng-breadcrumbs .heading-center {
+        float: none !important;
+        text-align: center;
+    }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <% include ../common/head %>
+
+<body >
+
+  <% include ../common/logo %>
+  <% include ../common/separator %>
+
+  <%if ( language == 'en_US') {%>
+  <%- include en.ejs%>
+  <%}%>
+  <%if ( language == 'pt') {%>
+  <%- include pt.ejs%>
+  <%}%>
+
+  <% include ../common/separator %>
+  <%if ( language == 'en_US') {%>
+  <%- include ../common/en/footer%>
+  <%}%>
+  <%if ( language == 'pt') {%>
+  <%- include ../common/pt/footer%>
+  <%}%></body>
+</html>

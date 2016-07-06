@@ -1,0 +1,153 @@
+<div class="container main">
+    <div class="row">
+        <div class="col-lg-12">
+            <section id="what-we-do">
+                <div class="container">
+                <div class="heading-center">
+                    <h2 class="section-heading">{{"main.whatWeDo.title" | translate}}</h2>
+                    <hr>
+                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="boxed-content">
+                                <i class="fa fa-video-camera"></i>
+                                <h2 class="boxed-content-title">{{"main.whatWeDo.videos.title" | translate}}</h2>
+                                <p>{{"main.whatWeDo.videos.description" | translate}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="boxed-content">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <h2 class="boxed-content-title">{{"main.whatWeDo.expose.title" | translate}}</h2>
+                                <p>{{"main.whatWeDo.expose.description" | translate}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="boxed-content">
+                                <i class="fa fa-shopping-cart"></i>
+                                <h2 class="boxed-content-title">{{"main.whatWeDo.innovate.title" | translate}}</h2>
+                                <p>{{"main.whatWeDo.innovate.description" | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="portfolio">
+                <div class="heading-center">
+                    <h2 class="section-heading">{{"main.portfolio.title" | translate}}</h2>
+                    <p class="lead">{{"main.portfolio.description" | translate}}</p>
+                    <hr>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="portfolio-container" ng-if="vm.isDesktop">
+                            <div class="portfolio-item col-md-4" ng-repeat="n in [0,1,2] track by $index">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h4 class="title" translate="main.portfolio.where.{{$index}}"></h4>
+                                    <p class="brief-description" translate="main.portfolio.place.{{$index}}"></p>
+                                    <a href="" ng-click="vm.clickToOpen(vm.videosPortfolio[$index])" class="btn" translate="main.portfolio.watch"></a>
+                                </div>
+                                <div class="media-wrapper">
+                                    <img cdn-src src="{{vm.imagesPortfolio[$index]}}" width-k="1200" height-k="675" type-k="3" bgcolor-k="000000">
+                                </div>
+                            </div>
+                        </div>
+                        <slick ng-if="!vm.isDesktop" autoplay="true" autoplaySpeed="8000" cssEase="ease-in" speed="1500" slides-to-show="1" slides-to-scroll="1" dots="true" arrows="false">
+                            <div class="portfolio-item col-md-4" ng-repeat="n in [0,1,2] track by $index">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h4 class="title" translate="main.portfolio.where.{{$index}}"></h4>
+                                    <p class="brief-description" translate="main.portfolio.place.{{$index}}"></p>
+                                    <a href="" ng-click="vm.clickToOpen(vm.videosPortfolio[$index])" class="btn" translate="main.portfolio.watch"></a>
+                                </div>
+                                <div class="media-wrapper">
+                                    <img cdn-src src="{{vm.imagesPortfolio[$index]}}" width-k="1200" height-k="675" type-k="2" bgcolor-k="000000">
+                                </div>
+                            </div>
+                        </slick>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="testimonial slick-carousel">
+                <div class="testimonial-container">
+                    <div class="heading-center">
+                        <h2 class="section-heading">{{"main.testimonials.title" | translate}}</h2>
+                        <p class="lead">{{"main.testimonials.description" | translate}}</p>
+                        <hr>
+                    </div>
+                    <slick autoplay="true" autoplaySpeed="8000" cssEase="ease-in" speed="1500" next-arrow=".slick-next" prev-arrow=".slick-prev">
+                        <div class="testimonial-body" ng-repeat="n in [0,1,2,3] track by $index">
+                            <p translate="main.testimonials.quote.{{$index}}"></p>
+                            <div class="testimonial-author">
+                                <img cdn-src src="{{vm.imagesTestimonials[$index]}}"  alt="Author" class="pull-left">
+                                <span class="author-name" translate="main.testimonials.author.{{$index}}"></span>
+                                <em translate="main.testimonials.company.{{$index}}"></em>
+                            </div>
+                        </div>
+                        <button type="button" data-role="none" class="btn slick-prev"></button>
+                        <button type="button" data-role="none" class="btn slick-next"></button>
+                    </slick>
+                </div>
+            </section>
+            <hr>
+            <section class="clients">
+                <div class="container">
+                    <div class="heading-center">
+                        <h2 class="section-heading">{{"main.clients.title" | translate}}</h2>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_3y8jexe0" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_k3e4uy87" type-k="2" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_vem7ykze" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_7808erta" type-k="2" alt="logo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_lqndw2fr" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_pfenxmqe" type-k="2" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_sh75o20j" alt="logo">
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <img cdn-src src="0_ny9k50qw" type-k="2" alt="logo">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="become-flixer">
+            <hr>
+                <div class="container">
+                    <div class="heading-center">
+                        <h2 class="section-heading">{{"cta.fixed.becomeFlixer.title" | translate}}</h2>
+                        <p class="lead">{{"cta.fixed.becomeFlixer" | translate}}</p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <a ui-sref="root.home.signup-flixer">
+                                <button type="button" class="btn btn-primary btn-block">
+                                    {{"cta.fixed.learnMore" | translate}}
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

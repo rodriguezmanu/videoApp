@@ -1,0 +1,133 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>CrossOver App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+      <link rel='stylesheet' href='bower_components/ng-dialog/css/ngDialog.css' />
+      <link rel='stylesheet' href='bower_components/ng-dialog/css/ngDialog-theme-default.css' />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <!-- endinjector -->
+    <!-- endbuild -->
+    <!-- google fonts start-->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400italic,700,400,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700' rel='stylesheet' type='text/css'>
+    <!-- google fonts end -->
+  </head>
+  <body ng-app="CrossoverApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <header ui-view="header"></header>
+    <ui-view></ui-view>
+    <footer ui-view="footer"></footer>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/lodash/lodash.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-translate/angular-translate.js"></script>
+      <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+      <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+      <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+      <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+      <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+      <script src="bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
+      <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+      <script src="bower_components/isMobile/isMobile.js"></script>
+      <script src="bower_components/angular-translate-recaptcha-dynamic/angular-translate-recaptcha-dynamic.js"></script>
+      <script src="bower_components/vsGoogleAutocomplete/dist/vs-google-autocomplete.js"></script>
+      <script src="bower_components/vsGoogleAutocomplete/dist/vs-autocomplete-validator.js"></script>
+      <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+        <!-- build:js(.tmp) app/app.js -->
+          <script src="app/app.js"></script>
+          <!-- injector:js -->
+          <script src="components/directives/breadcrumbs/breadcrumbs.module.js"></script>
+          <script src="components/directives/footer/footer.module.js"></script>
+          <script src="components/directives/header/header.module.js"></script>
+          <script src="components/directives/mongoose-errors/mongoose-errors.module.js"></script>
+          <script src="components/services/mail/mail.module.js"></script>
+          <script src="components/services/recaptcha/recaptcha.module.js"></script>
+          <script src="components/services/user/user.module.js"></script>
+          <script src="app/account/account.js"></script>
+          <script src="app/account/change-password/change-password.controller.js"></script>
+          <script src="app/account/forgot-password/forgot-password.controller.js"></script>
+          <script src="app/account/login/login.controller.js"></script>
+          <script src="app/account/reset-password/reset-password.controller.js"></script>
+          <script src="app/account/settings/settings.controller.js"></script>
+          <script src="app/account/signup-bo/signup.controller.js"></script>
+          <script src="app/account/signup-flixer/signup.controller.js"></script>
+          <script src="app/app.config.js"></script>
+          <script src="app/app.constant.js"></script>
+          <script src="app/app.factory.js"></script>
+          <script src="app/contact-us/contact-us.controller.js"></script>
+          <script src="app/contact-us/contact-us.js"></script>
+          <script src="app/flixer-admin/flixer-admin.js"></script>
+          <script src="app/flixer-admin/flixers/flixer-admin-flixers.controller.js"></script>
+          <script src="app/flixer-admin/flixers/flixer-detail/flixer-detail.controller.js"></script>
+          <script src="app/flixer-admin/jobs/active/assign-modal.controller.js"></script>
+          <script src="app/flixer-admin/jobs/active/job.active.controller.js"></script>
+          <script src="app/flixer-admin/jobs/assigned/job.assigned.controller.js"></script>
+          <script src="app/flixer-admin/jobs/flixer-admin-jobs.controller.js"></script>
+          <script src="app/flixer-admin/jobs/review/job.review.controller.js"></script>
+          <script src="app/flixer-admin/jobs/review/review-modal.controller.js"></script>
+          <script src="app/flixer-admin/jobs/view/job.view.controller.js"></script>
+          <script src="app/flixer-admin/main-board/main-board.controller.js"></script>
+          <script src="app/flixer/flixer-board/edit/edit-modal.controller.js"></script>
+          <script src="app/flixer/flixer-board/edit/job-edit.controller.js"></script>
+          <script src="app/flixer/flixer-board/flixer-board.controller.js"></script>
+          <script src="app/flixer/flixer-board/info/job-info.controller.js"></script>
+          <script src="app/flixer/flixer-board/upload/job-upload.controller.js"></script>
+          <script src="app/flixer/flixer-board/upload/upload-modal.controller.js"></script>
+          <script src="app/flixer/flixer.js"></script>
+          <script src="app/flixer/get-job-list/flixer.get-job-list.controller.js"></script>
+          <script src="app/flixer/get-job-list/job-detail/job-detail.controller.js"></script>
+          <script src="app/flixer/get-job-list/job-detail/take-modal.controller.js"></script>
+          <script src="app/main/main.controller.js"></script>
+          <script src="app/main/main.js"></script>
+          <script src="app/page-error/page-error.controller.js"></script>
+          <script src="app/page-error/page-error.js"></script>
+          <script src="components/directives/breadcrumbs/breadcrumbs.directive.js"></script>
+          <script src="components/directives/footer/footer.directive.js"></script>
+          <script src="components/directives/header/header.directive.js"></script>
+          <script src="components/directives/mongoose-errors/mongoose-erros.directive.js"></script>
+          <script src="components/directives/translateSelect/translateSelect.directive.js"></script>
+          <script src="components/services/locale/locale.service.js"></script>
+          <script src="components/services/mail/mail.service.js"></script>
+          <script src="components/services/recaptcha/recaptcha.service.js"></script>
+          <script src="components/services/user/user.resource.js"></script>
+          <script src="components/services/user/user.service.js"></script>
+          <!-- endinjector -->
+        <!-- endbuild -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWiJeWWYKuL95aXyzOuOC47pyDhkQ32PU&libraries=places" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <% include ../common/head %>
+
+<body >
+
+    <% include ../common/logo %>
+    <%if ( language == 'en_US') {%>
+    <%- include ../common/en/greetings%>
+    <%}%>
+    <%if ( language == 'pt') {%>
+    <%- include ../common/pt/greetings%>
+    <%}%>
+    <% include ../common/separator %>
+
+    <%if ( language == 'en_US') {%>
+    <%- include en.ejs%>
+    <%}%>
+    <%if ( language == 'pt') {%>
+    <%- include pt.ejs%>
+    <%}%>
+    -
+    <% include ../common/separator %>
+    -
+    <% include ../common/utils/banner %>
+    -
+    <% include ../common/separator %>
+    -
+    <% include ../common/utils/2-images %>
+    -
+    <% include ../common/separator %>
+    -
+    <% include ../common/utils/3-images %>
+
+    <% include ../common/separator %>
+    <%if ( language == 'en_US') {%>
+    <%- include ../common/en/footer%>
+    <%}%>
+    <%if ( language == 'pt') {%>
+    <%- include ../common/pt/footer%>
+    <%}%></body>
+</html>

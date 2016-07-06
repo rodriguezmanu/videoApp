@@ -1,0 +1,195 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    color: #7b7b7b;
+    line-height: 1.6;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 5px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #656565;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+a {
+    color: #406da4;
+
+    &:hover,
+    &:focus {
+        color: #355987;
+        text-decoration: none;
+    }
+
+}
+
+a,
+a:focus,
+a:hover,
+a:active,
+button,
+button:hover {
+    outline: 0 !important;
+}
+
+hr {
+    border-color: #eaeaea;
+}
+
+.header-space {
+    margin-top: 115px;
+}
+
+.desktop ui-view > .container {
+    min-height: 85%;
+}
+
+.input-group-addon {
+    .fa {
+        width: 14px;
+    }
+
+}
+
+
+.ngdialog-content {
+    min-height: 400px;
+    width: 650px !important;
+    overflow: auto;
+}
+
+.back-link {
+    overflow: auto;
+    margin: 20px 0;
+}
+
+.ngdialog.ngdialog-theme-default {
+    .ngdialog-close:before {
+        color: #131212;
+        right: 0px;
+        top: 2px;
+        font-family: FontAwesome;
+        content: '\f057';
+    }
+
+    .ngdialog-content {
+        padding: 2em;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .ngdialog.ngdialog-theme-default {
+        padding-top: 80px;
+    }
+
+    section {
+        margin-bottom: 10px;
+    }
+
+}
+
+.page-content {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #eaeaea;
+    border-radius: 2px;
+    padding: 0px;
+    overflow: auto;
+    margin: 10px 0;
+
+    .column-content {
+        padding: 20px 30px;
+    }
+
+    .form-label {
+        margin: 10px 20px 20px 0;
+        line-height: 1;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+
+    .form-value {
+        margin: 10px 20px 20px 0;
+        font-size: 14px;
+        text-align: justify;
+        font-weight: normal;
+    }
+
+    .long-text{
+        font-size: 12px;
+    }
+
+    @media screen and (max-width:768px) {
+        .form-label {
+            margin: 10px 20px 10px 0;
+            line-height: 1;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        .form-value {
+            margin: 0px 20px 20px 0;
+            font-size: 14px;
+            text-align: justify;
+            font-weight: normal;
+        }
+
+        .long-text{
+            font-size: 12px;
+        }
+
+    }
+
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+@media (max-width:@screen-xs-max) {
+    .ngdialog.ngdialog-theme-default {
+        .ngdialog-content {
+            padding: 20px 20px 50px;
+            line-height: 20px;
+        }
+    }
+}
+
+////////////////////////////////
+// Modal confirmation //
+////////////////////////////////
+.modal-confirm {
+    i.fa-spinner {
+        font-size: 40px;
+        color: #3D99BF;
+    }
+    h3 {
+        padding: 75px 0;
+    }
+}
+
+@media (max-width: @screen-xs-max) {
+    .modal-confirm {
+        padding: 0;
+    }
+}
+
+.angular-google-map-container {
+    height: 400px;
+}

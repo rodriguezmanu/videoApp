@@ -1,0 +1,246 @@
+// @color_1: #c8c8c8;
+// @color_2: #7AA3CC;
+// @color_3: #262626;
+// @color_4: #737373;
+
+// .profile-style {
+//     clear: both;
+//     label.btn {
+//         span {
+//             font-size: 1.5em;
+//             text-transform: uppercase;
+//         }
+//     }
+//     label {
+//         input[type="radio"] {
+//             &~i.fa.fa-circle-o {
+//                 color: @color_1;
+//                 display: inline;
+//             }
+//             &~i.fa.fa-check-circle-o {
+//                 display: none;
+//             }
+//             &:checked {
+//                 &~i.fa.fa-circle-o {
+//                     display: none;
+//                 }
+//                 &~i.fa.fa-check-circle-o {
+//                     color: @color_2;
+//                     display: inline;
+//                 }
+//             }
+//         }
+//         &:hover {
+//             input[type="radio"] {
+//                 &~i.fa {
+//                     color: @color_2;
+//                 }
+//             }
+//             input[type="checkbox"] {
+//                 &~i.fa {
+//                     color: @color_2;
+//                 }
+//             }
+//         }
+//         input[type="checkbox"] {
+//             &~i.fa.fa-square-o {
+//                 color: @color_1;
+//                 display: inline;
+//             }
+//             &~i.fa.fa-check-square-o {
+//                 display: none;
+//             }
+//             &:checked {
+//                 &~i.fa.fa-square-o {
+//                     display: none;
+//                 }
+//                 &~i.fa.fa-check-square-o {
+//                     color: @color_2;
+//                     display: inline;
+//                 }
+//             }
+//         }
+//     }
+//     div[data-toggle="buttons"] {
+//         label.active {
+//             color: @color_2;
+//             -webkit-box-shadow: none;
+//             box-shadow: none;
+//         }
+//         label {
+//             display: inline-block;
+//             padding: 6px 12px;
+//             margin-bottom: 0;
+//             font-size: 14px;
+//             font-weight: normal;
+//             line-height: 2em;
+//             text-align: left;
+//             white-space: nowrap;
+//             vertical-align: top;
+//             cursor: pointer;
+//             background-color: none;
+//             border: 0px solid #c8c8c8;
+//             border-radius: 3px;
+//             color: @color_1;
+//             -webkit-user-select: none;
+//             -moz-user-select: none;
+//             -ms-user-select: none;
+//             -o-user-select: none;
+//             user-select: none;
+//             &:hover {
+//                 color: @color_2;
+//             }
+//             &:active {
+//                 -webkit-box-shadow: none;
+//                 box-shadow: none;
+//             }
+//         }
+//     }
+//     .hovereffect {
+//         .overlay {
+//             width: 100%;
+//             height: 100%;
+//             position: absolute;
+//             overflow: hidden;
+//             top: 0;
+//             left: 0;
+//             opacity: 0;
+//             background-color: rgba(0, 0, 0, 0.5);
+//             -webkit-transition: all .1s ease-in-out;
+//             transition: all .1s ease-in-out;
+//         }
+//         img {
+//             -webkit-transition: all .1s linear;
+//             transition: all .1s linear;
+//         }
+//         &:hover {
+//             img {
+//                 -ms-transform: scale(0.8);
+//                 -webkit-transform: scale(0.8);
+//                 transform: scale(0.8);
+//             }
+//             .overlay {
+//                 opacity: 0.2;
+//                 filter: alpha(opacity=100);
+//             }
+//         }
+//     }
+//     .profile {
+//         padding-top: 20px;
+//         margin: 10px 0 20px;
+//         background-color: rgba(214, 224, 226, 0.2);
+//         border-top-width: 0;
+//         border-bottom-width: 2px;
+//         -webkit-border-radius: 3px;
+//         -moz-border-radius: 3px;
+//         border-radius: 3px;
+//         -webkit-box-shadow: none;
+//         -moz-box-shadow: none;
+//         box-shadow: none;
+//         -webkit-box-sizing: border-box;
+//         -moz-box-sizing: border-box;
+//         box-sizing: border-box;
+//     }
+//     .profile.hovercard {
+//         position: relative;
+//         padding-top: 0;
+//         text-align: center;
+//         background-color: rgba(214, 224, 226, 0.2);
+//         .cardheader {
+//             background-size: cover;
+//             height: 135px;
+//         }
+//         .avatar {
+//             position: relative;
+//             margin-top: 25px;
+//             margin-bottom: 25px;
+//             img {
+//                 width: 200px;
+//                 height: 200px;
+//                 max-width: 200px;
+//                 max-height: 200px;
+//                 -webkit-border-radius: 50%;
+//                 -moz-border-radius: 50%;
+//                 border-radius: 50%;
+//                 border: 5px solid rgba(255, 255, 255, 0.5);
+//             }
+//         }
+//         .info {
+//             padding: 4px 8px 10px;
+
+//             .title {
+//                 margin-bottom: 4px;
+//                 font-size: 24px;
+//                 line-height: 1;
+//                 color: @color_3;
+//                 vertical-align: middle;
+//             }
+//             .desc {
+//                 overflow: hidden;
+//                 font-size: 10px;
+//                 line-height: 20px;
+//                 color: @color_4;
+//                 text-overflow: ellipsis;
+//             }
+//         }
+
+//         .detail-info {
+//             padding: 40px 8px 10px;
+//             text-align: justify;
+//             .title {
+//                 margin-bottom: 20px;
+//                 font-size: 24px;
+//                 line-height: 1;
+//                 color: @color_3;
+//             }
+//             .desc {
+//                 overflow: hidden;
+//                 font-size: 14px;
+//                 line-height: 30px;
+//                 color: @color_4;
+//                 text-overflow: ellipsis;
+//                 .upper {
+//                     text-transform: uppercase;
+//                 }
+//             }
+//             .actions {
+//                 padding: 40px 8px 10px;
+//             }
+//         }
+
+//         .bottom {
+//             padding: 0 20px;
+//             margin-bottom: 17px;
+//             span {
+//                 text-transform: uppercase;
+//             }
+//         }
+//     }
+//     .profile.hovercard.pointer {
+//         cursor: pointer;
+//     }
+//     @media screen and (max-width:768px) {
+//         .profile.hovercard {
+//             .detail-info {
+//                 padding: 20px 8px 10px;
+//                 text-align: center;
+//                 .title {
+//                     margin-bottom: 5px;
+//                     font-size: 24px;
+//                     line-height: 1;
+//                     color: @color_3;
+//                 }
+//                 .desc {
+//                     overflow: hidden;
+//                     font-size: 14px;
+//                     line-height: 30px;
+//                     color: @color_4;
+//                     text-overflow: ellipsis;
+//                 }
+//             }
+//         }
+//         .profile-fix {
+//             margin: 10px;
+//         }
+//     }
+// }

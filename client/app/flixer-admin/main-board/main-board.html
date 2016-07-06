@@ -1,0 +1,27 @@
+<div class="container main-board">
+    <div class="row">
+        <div class="col-sm-12 header-space">
+            <ng-breadcrumbs page-title="breadcrumbs.flixer-admin.main-board"></ng-breadcrumbs>
+        </div>
+    </div>
+    <div class="col-sm-4 col-sm-offset-1">
+        <div class="pricing-item">
+            <i class="fa fa-users plan-icon"></i>
+            <strong class="title">{{'flixer-admin.adminFlixer.title' | translate}}</strong>
+            <h4>{{'flixer-admin.adminJobs.description' | translate}}</h4>
+            <a ui-sref="root.home.flixer-admin.flixers">
+                <button type="button" class="btn btn-primary btn-block">{{'flixer-admin.startButton' | translate}}</button>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4 col-sm-offset-2">
+        <div class="pricing-item">
+            <i class="fa fa-tasks plan-icon"></i>
+            <strong class="title">{{'flixer-admin.adminJobs.title' | translate}}</strong>
+            <h4>{{'flixer-admin.adminFlixer.description' | translate}}</h4>
+            <a ui-sref="root.home.flixer-admin.jobs">
+                <button type="button" class="btn btn-primary btn-block">{{'flixer-admin.startButton' | translate}}</button>
+            </a>
+        </div>
+    </div>
+</div>
