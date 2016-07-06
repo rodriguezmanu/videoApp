@@ -13,9 +13,6 @@
                         },
                         'header@': {
                             template: '<ng-header></ng-header>'
-                        },
-                        'footer@': {
-                            template: '<ng-footer></ng-footer>'
                         }
                     }
                 })
@@ -24,10 +21,18 @@
                     url:'/',
                     templateUrl: 'app/main/main.html',
                     controller: 'MainCtrl',
-                    controllerAs: 'vm',
-                    ncyBreadcrumb: {
-                        label: 'breadcrumbs.homePage'
-                    },
+                    controllerAs: 'vm'
+                })
+                .state('root.home.video', {
+                    url: '/video/:id',
+                    authenticate: true,
+                    views: {
+                        '@': {
+                            templateUrl: 'app/main/video-details.html',
+                            controller: 'MainCtrl',
+                            controllerAs: 'vm'
+                        }
+                    }
                 });
         });
 })();

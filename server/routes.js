@@ -10,10 +10,10 @@ var path = require('path');
 module.exports = function(app) {
 
   // Insert routes below
-  app.use('/api/users', require('./api/user'));
-  app.use('/api/reCaptcha', require('./api/reCaptcha'));
-  app.use('/api/auth', require('./auth'));
-  app.use('/api/mail', require('./api/mail'));
+  // app.use('/api/users', require('./api/user'));
+  // app.use('/api/reCaptcha', require('./api/reCaptcha'));
+  // app.use('/api/auth', require('./auth'));
+  // app.use('/api/mail', require('./api/mail'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

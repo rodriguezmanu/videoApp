@@ -5,20 +5,20 @@
         .module('CrossoverApp')
         .config(function($stateProvider) {
             $stateProvider
-            .state('root.home.login', {
-                url: '^/login',
-                authenticate: false,
-                ncyBreadcrumb: {
-                    label:'breadcrumbs.login'
-                },
-                views: {
-                    '@': {
-                        templateUrl: 'app/account/login/login.html',
-                        controller: 'LoginCtrl',
-                        controllerAs: 'vm'
-                    }
-                }
-            })
+            // .state('root.home.login', {
+            //     url: '^/login',
+            //     authenticate: false,
+            //     ncyBreadcrumb: {
+            //         label:'breadcrumbs.login'
+            //     },
+            //     views: {
+            //         '@': {
+            //             templateUrl: 'app/account/login/login.html',
+            //             controller: 'LoginCtrl',
+            //             controllerAs: 'vm'
+            //         }
+            //     }
+            // })
             .state('root.home.signup-bo', {
                 url: '^/signup-bo',
                 authenticate: false,

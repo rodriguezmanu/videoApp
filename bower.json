@@ -25,7 +25,8 @@
     "angular-translate-recaptcha-dynamic": "~0.0.3",
     "vsGoogleAutocomplete": "vs-google-autocomplete#^0.5.0",
     "angular-validation-match": "^1.7.1",
-    "moment": "^2.12.0"
+    "moment": "^2.12.0",
+    "angular-md5": "^0.1.10"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

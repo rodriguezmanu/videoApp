@@ -1,8 +1,0 @@
-<div class="page-header one-column">
-    <ol class="breadcrumb link-accent">
-        <li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract">
-            <a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel | translate}}</a>
-            <span ng-switch-when="true">{{step.ncyBreadcrumbLabel | translate}}</span>
-        </li>
-    </ol>
-</div>

@@ -35,7 +35,6 @@
     <!-- Add your site or application content here -->
     <header ui-view="header"></header>
     <ui-view></ui-view>
-    <footer ui-view="footer"></footer>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -66,31 +65,22 @@
       <script src="bower_components/vsGoogleAutocomplete/dist/vs-autocomplete-validator.js"></script>
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
       <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-md5/angular-md5.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
         <!-- build:js(.tmp) app/app.js -->
           <script src="app/app.js"></script>
           <!-- injector:js -->
-          <script src="components/directives/breadcrumbs/breadcrumbs.module.js"></script>
-          <script src="components/directives/footer/footer.module.js"></script>
           <script src="components/directives/header/header.module.js"></script>
-          <script src="components/directives/mongoose-errors/mongoose-errors.module.js"></script>
-          <script src="components/services/mail/mail.module.js"></script>
-          <script src="components/services/recaptcha/recaptcha.module.js"></script>
           <script src="components/services/user/user.module.js"></script>
+          <script src="components/services/users/users.module.js"></script>
+          <script src="components/services/videos/videos.module.js"></script>
           <script src="app/account/account.js"></script>
-          <script src="app/account/change-password/change-password.controller.js"></script>
-          <script src="app/account/forgot-password/forgot-password.controller.js"></script>
-          <script src="app/account/login/login.controller.js"></script>
-          <script src="app/account/reset-password/reset-password.controller.js"></script>
-          <script src="app/account/settings/settings.controller.js"></script>
           <script src="app/account/signup-bo/signup.controller.js"></script>
           <script src="app/account/signup-flixer/signup.controller.js"></script>
           <script src="app/app.config.js"></script>
           <script src="app/app.constant.js"></script>
           <script src="app/app.factory.js"></script>
-          <script src="app/contact-us/contact-us.controller.js"></script>
-          <script src="app/contact-us/contact-us.js"></script>
           <script src="app/flixer-admin/flixer-admin.js"></script>
           <script src="app/flixer-admin/flixers/flixer-admin-flixers.controller.js"></script>
           <script src="app/flixer-admin/flixers/flixer-detail/flixer-detail.controller.js"></script>
@@ -112,20 +102,19 @@
           <script src="app/flixer/get-job-list/flixer.get-job-list.controller.js"></script>
           <script src="app/flixer/get-job-list/job-detail/job-detail.controller.js"></script>
           <script src="app/flixer/get-job-list/job-detail/take-modal.controller.js"></script>
+          <script src="app/login/login.controller.js"></script>
+          <script src="app/login/login.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/page-error/page-error.controller.js"></script>
           <script src="app/page-error/page-error.js"></script>
-          <script src="components/directives/breadcrumbs/breadcrumbs.directive.js"></script>
-          <script src="components/directives/footer/footer.directive.js"></script>
           <script src="components/directives/header/header.directive.js"></script>
-          <script src="components/directives/mongoose-errors/mongoose-erros.directive.js"></script>
           <script src="components/directives/translateSelect/translateSelect.directive.js"></script>
           <script src="components/services/locale/locale.service.js"></script>
-          <script src="components/services/mail/mail.service.js"></script>
-          <script src="components/services/recaptcha/recaptcha.service.js"></script>
           <script src="components/services/user/user.resource.js"></script>
           <script src="components/services/user/user.service.js"></script>
+          <script src="components/services/users/users.service.js"></script>
+          <script src="components/services/videos/videos.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWiJeWWYKuL95aXyzOuOC47pyDhkQ32PU&libraries=places" type="text/javascript"></script>

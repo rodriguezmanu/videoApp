@@ -7,46 +7,49 @@
                 templateUrl: 'components/directives/header/header.html',
                 restrict: 'EA',
                 controller: HeaderCtrl,
-                link: link,
+                // link: link,
                 scope: {}
             };
         });
 
-    HeaderCtrl.$inject = ['$scope', '$location', 'UserService', '$state'];
+    HeaderCtrl.$inject = ['$scope', 'UsersService', '$state'];
 
     /* @ngInject */
-    function HeaderCtrl($scope, $location, UserService, $state) {
+    function HeaderCtrl($scope, UsersService, $state) {
 
-        $scope.isCollapsed = true;
-        $scope.isFlixerAdmin = UserService.isFlixerAdmin;
-        $scope.isFlixer = UserService.isFlixer;
-        $scope.isLoggedIn = UserService.isLoggedIn;
-        $scope.getCurrentUser = UserService.getCurrentUser;
+        $scope.isLoggedIn = UsersService.isLoggedIn;
+        $scope.getCurrentUser = UsersService.getCurrentUser;
         $scope.logout = logout;
-        $scope.isActive = isActive;
 
         function logout() {
-            UserService.logout();
-            $state.go('root.home.login', {}, {reload: true});
-        }
-
-        function isActive(route) {
-            return route === $location.path();
+            UsersService.logout()
+            .then(function(response) {
+                if (response.status === 'success') {
+                    $state.go('root.home', {}, {
+                        reload: true
+                    });
+                } else if (response.status === 'error') {
+                    scope.errors = response.error;
+                }
+            })
+            .catch(function(err) {
+                scope.errors = response.error;
+            });
         }
     }
 
-    function link(scope, element, attr) {
-        var desktop,
-            tablet,
-            phone,
-            device;
+    // function link(scope, element, attr) {
+        // var desktop,
+        //     tablet,
+        //     phone,
+        //     device;
 
         //device detection
-        desktop = (!isMobile.phone && !isMobile.tablet) ? 'desktop' : undefined;
-        tablet = (isMobile.tablet) ? 'tablet' : undefined;
-        phone = (isMobile.phone) ? 'phone' : undefined;
-        device = desktop || tablet || phone;
+        // desktop = (!isMobile.phone && !isMobile.tablet) ? 'desktop' : undefined;
+        // tablet = (isMobile.tablet) ? 'tablet' : undefined;
+        // phone = (isMobile.phone) ? 'phone' : undefined;
+        // device = desktop || tablet || phone;
 
-        $('body').addClass(device);
-    }
+        // $('body').addClass(device);
+    // }
 })();

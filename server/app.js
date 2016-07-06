@@ -8,21 +8,21 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
 var express = require('express');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var config = require('./config/environment');
 
 // Connect to database
-mongoose.connect(config.mongo.uri, config.mongo.options);
+// mongoose.connect(config.mongo.uri, config.mongo.options);
 
-mongoose.connection.on('error', function(err) {
-  console.error('MongoDB connection error: ' + err);
-  process.exit(-1);
-});
+// mongoose.connection.on('error', function(err) {
+//   console.error('MongoDB connection error: ' + err);
+//   process.exit(-1);
+// });
 // Export the seed object based on the NODE_ENV, populating the DB
 // ================================================================
-if (config.seedDB) {
-  require('./config/seed/' + process.env.NODE_ENV);
-}
+// if (config.seedDB) {
+//   require('./config/seed/' + process.env.NODE_ENV);
+// }
 
 
 // Setup server

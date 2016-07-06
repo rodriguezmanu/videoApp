@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.mailService', []);
+        .module('CrossoverApp.usersService', []);
 })();
