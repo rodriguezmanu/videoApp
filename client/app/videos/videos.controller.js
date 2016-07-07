@@ -5,15 +5,30 @@
         .module('CrossoverApp')
         .controller('VideosCtrl', VideosCtrl);
 
-    VideosCtrl.$inject = ['VideosService', '$stateParams', '$sce'];
+    VideosCtrl.$inject = ['VideosService', '$stateParams', '$sce', '$scope'];
 
     /* @ngInject */
-    function VideosCtrl(VideosService, $stateParams, $sce) {
-        var vm = this;
+    function VideosCtrl(VideosService, $stateParams, $sce, $scope) {
+        var vm = this,
+            apiCollection = [];
         vm.getVideos = getVideos;
         vm.getSingleVideo = getSingleVideo;
         vm.setRating = setRating;
-        vm.setServerVideo = setServerVideo;
+        vm.stopAllVideos = stopAllVideos;
+        vm.onPlayerReady = onPlayerReady;
+
+        function onPlayerReady($API, id) {
+            $API.idVideo = id;
+            apiCollection.push($API)
+        };
+
+        function stopAllVideos(id) {
+            angular.forEach(apiCollection, function (value) {
+                if (value.idVideo !== id) {
+                    value.pause();
+                }
+            });
+        }
 
         //mejorar esto, cambiar de conroladores o recorrer directamente en el resolve de ui router
         if ($stateParams.id) {
@@ -27,7 +42,6 @@
             .then(function(response) {
                 if (response.status === 'success') {
                     vm.videos = response.data;
-                    console.log(response.data);
                     getAverageRankings(response.data);
                 } else if (response.status === 'error') {
                     vm.errors = response.error;
@@ -89,16 +103,6 @@
             }
             avg = sum / i;
             vm.video.avgRating = avg;
-        }
-
-        function setServerVideo(video) {
-            //poner variables para el server
-            // no se por que no anda para los videos details
-            // no se por que no anda en los 4 ultimos videos
-            // no se por que hay que hacer refresh en la pagina para que se muestren los videos
-            console.log('http://localhost:3000/' + video);
-            return $sce.trustAsResourceUrl('http://localhost:3000/' + video);
-            // trustAsUrl
         }
     }
 })();

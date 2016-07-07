@@ -11,10 +11,13 @@
             'pascalprecht.translate',//delete
             'tmh.dynamicLocale',//delete
             'CrossoverApp.userService',//delete
+            'angular-md5',
             'CrossoverApp.usersService',
             'CrossoverApp.videosService',
             'CrossoverApp.ngHeader',
             'CrossoverApp.limitHtml',
-            'angular-md5'
+            'com.2fdevs.videogular',
+            'com.2fdevs.videogular.plugins.controls',
+            'com.2fdevs.videogular.plugins.overlayplay'
         ]);
 })();

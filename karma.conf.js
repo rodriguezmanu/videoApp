@@ -43,6 +43,9 @@ module.exports = function(config) {
       'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'client/bower_components/moment/moment.js',
       'client/bower_components/angular-md5/angular-md5.js',
+      'client/bower_components/videogular/videogular.js',
+      'client/bower_components/videogular-controls/vg-controls.js',
+      'client/bower_components/videogular-overlay-play/vg-overlay-play.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/bower_components/angular-scenario/angular-scenario.js',
       // endbower
