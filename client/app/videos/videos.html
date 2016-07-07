@@ -1,0 +1,28 @@
+<div class="container videos">
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <div class="container">
+                    <div class="heading-center">
+                        <h2 class="section-heading">Videos</h2>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 video" ng-repeat="video in vm.videos">
+                        <!-- ui-sref="root.home.video({ id: video._id })" -->
+                            <div class="boxed-content" id="{{video._id}}" ui-sref="root.home.video({ id: video._id })">
+                                <h2 class="boxed-content-title">{{::video.name}}</h2>
+                                <video ng-show="video.url" class="preview-video" controls>
+                                    <source ng-src="{{vm.setServerVideo(video.url)}}">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <uib-rating ng-model="video.avgRating" read-only="true"></uib-rating>
+                                <p ng-bind-html="video.description | limitHtml:100"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

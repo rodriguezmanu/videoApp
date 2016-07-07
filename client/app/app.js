@@ -14,6 +14,7 @@
             'CrossoverApp.usersService',
             'CrossoverApp.videosService',
             'CrossoverApp.ngHeader',
+            'CrossoverApp.limitHtml',
             'angular-md5'
         ]);
 })();

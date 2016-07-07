@@ -1,0 +1,20 @@
+<pre>{{vm.video | json}}</pre>
+<div class="container video">
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <div class="container">
+                    <div class="heading-center">
+                        <h2 class="section-heading">{{::vm.video.name}}</h2>
+                        <hr>
+                        <uib-rating ng-model="vm.video.avgRating" enable-reset="false" ng-click="vm.setRating(vm.video._id, vm.video.avgRating)"></uib-rating>
+                        <video ng-show="vm.video.url" class="preview-video" controls>
+                            <source ng-src="{{vm.video.url}}">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>{{::vm.video.description}}</p>
+                    </div>
+            </section>
+        </div>
+    </div>
+</div>

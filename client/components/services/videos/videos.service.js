@@ -11,6 +11,7 @@
     function VideosService($http, UsersService, $q) {
         this.getVideos = getVideos;
         this.getSingleVideo = getSingleVideo;
+        this.setRating = setRating;
 
         /**
         * Get All videos
@@ -20,6 +21,7 @@
         */
         function getVideos(options, callback) {
             //faltan las options
+            //ver por que trae 10 nomas, debe traer todos
             var cb = callback || angular.noop;
             var deferred = $q.defer();
 
@@ -45,7 +47,33 @@
             var cb = callback || angular.noop;
             var deferred = $q.defer();
 
-            $http.get('http://localhost:3000/videos?sessionId=' + UsersService.getSessionId() + '&videoId=' + id)
+            $http.get('http://localhost:3000/video?sessionId=' + UsersService.getSessionId() + '&videoId=' + id)
+            .success(function(data) {
+                deferred.resolve(data);
+                return cb();
+            })
+            .error(function(err) {
+                deferred.reject(err);
+                return cb(err);
+            }.bind(this));
+            return deferred.promise;
+        }
+
+        /**
+        * Set rating to a video
+        * @param  {String} id
+        * @param  {String} rating
+        * @param  {Function} callback - optional
+        * @return {Promise}
+        */
+        function setRating(id, rating, callback) {
+            var cb = callback || angular.noop;
+            var deferred = $q.defer();
+
+            $http.post('http://localhost:3000/video/ratings?sessionId=' + UsersService.getSessionId(), {
+                videoId: id,
+                rating: rating
+            })
             .success(function(data) {
                 deferred.resolve(data);
                 return cb();

@@ -22,17 +22,6 @@
                     templateUrl: 'app/main/main.html',
                     controller: 'MainCtrl',
                     controllerAs: 'vm'
-                })
-                .state('root.home.video', {
-                    url: '/video/:id',
-                    authenticate: true,
-                    views: {
-                        '@': {
-                            templateUrl: 'app/main/video-details.html',
-                            controller: 'MainCtrl',
-                            controllerAs: 'vm'
-                        }
-                    }
                 });
         });
 })();
