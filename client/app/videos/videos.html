@@ -30,14 +30,19 @@
                                     </vg-controls>
                                     <vg-overlay-play ng-click="vm.stopAllVideos(video._id)"></vg-overlay-play>
                                  </videogular>
-                                <uib-rating ng-model="video.avgRating" read-only="true"></uib-rating>
-                                <h3>{{video.avgRating}}</h3>
+                                <div class="col-md-12 ratings text-center">
+                                    <uib-rating ng-model="video.avgRating" read-only="true"></uib-rating>
+                                </div>
                                 <p ng-bind-html="video.description | limitHtml:100" ui-sref="root.home.video({ id: video._id })"></p>
-                                <button type="button" class="btn btn-primary" ui-sref="root.home.video({ id: video._id })">More Information</button>
-                                <h3 ng-show='vm.busy'>Loading data...</h3>
+                                <div class="col-md-12 more-info text-center">
+                                    <button type="button" class="btn btn-primary" ui-sref="root.home.video({ id: video._id })">More Information</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <h3 ng-show='vm.busy'>Loading data...</h3>
                 </div>
             </section>
         </div>
