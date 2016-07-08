@@ -21,7 +21,7 @@ module.exports = function(grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  grunt.loadNpmTasks('grunt-jsonlint');
+  grunt.loadNpmTasks('grunt-ng-constant');
 
   // Define the configuration for all the tasks
   grunt
@@ -177,6 +177,42 @@ module.exports = function(grunt) {
           custom : {
             options : {
               'web-host' : 'localhost'
+            }
+          }
+        },
+
+        //constant to server url
+        ngconstant: {
+          // Options for all targets
+          options: {
+            space: '  ',
+            wrap: "'use strict';\n// jshint ignore:start\n// jscs:disable\n{%= __ngModule %}\n// jshint ignore:end \n ",
+            name: 'CrossoverApp.appConstants',
+            dest: '<%= yeoman.client %>/app/constants.js'
+          },
+          // Environment targets
+          local: {
+            constants: {
+              appConstants: {
+                name: 'local',
+                serverBackEnd: 'http://localhost:3000/'
+              }
+            }
+          },
+          dev: {
+            constants: {
+              appConstants: {
+                name: 'development',
+                serverBackEnd: 'http://localhost:3000/'
+              }
+            }
+          },
+          prod: {
+            constants: {
+              appConstants: {
+                name: 'prod',
+                serverBackEnd: 'http://localhost:3000/'
+              }
             }
           }
         },
@@ -543,7 +579,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', function(target) {
     if (target === 'dist') {
-      return grunt.task.run([ 'build', 'env:all', 'env:prod', 'copy:gitHooks',
+      return grunt.task.run([ 'build', 'env:all', 'ngconstant:local', 'env:prod', 'copy:gitHooks',
           'express:prod', 'wait', 'open',
           'express-keepalive' ]);
     }
@@ -554,7 +590,7 @@ module.exports = function(grunt) {
           'concurrent:debug' ]);
     }
 
-    grunt.task.run([ 'clean:server', 'copy:gitHooks', 'env:all', 'injector:less',
+    grunt.task.run([ 'clean:server', 'copy:gitHooks', 'ngconstant:local', 'env:all', 'injector:less',
         'concurrent:server', 'injector', 'wiredep', 'autoprefixer',
         'express:dev', 'wait', 'open', 'watch']);
   });
@@ -574,7 +610,7 @@ module.exports = function(grunt) {
     }
 
     else if (target === 'client') {
-      return grunt.task.run([ 'clean:server', 'env:all', 'injector:less',
+      return grunt.task.run([ 'clean:server', 'ngconstant:local', 'env:all', 'injector:less',
           'concurrent:test', 'injector', 'autoprefixer', 'wiredep:test', 'karma' ]);
     }
     else

@@ -1,4 +1,4 @@
-<div class="container video">
+<div class="container video-details">
     <div class="row">
         <div class="col-md-12">
             <section>
@@ -6,17 +6,16 @@
                     <div class="heading-center">
                         <h2 class="section-heading">{{::vm.video.name}}</h2>
                         <hr>
-                        <uib-rating ng-model="vm.video.avgRating" enable-reset="false" ng-click="vm.setRating(vm.video._id, vm.video.avgRating)"></uib-rating>
-                        <videogular>
-                            <vg-media vg-src="[{src: 'http://localhost:3000/'+ vm.video.url, type: 'video/mp4'}]"></vg-media>
+                        <videogular vg-auto-play="true">
+                            <vg-media vg-src="[{src: vm.serverBackEnd + vm.video.url, type: 'video/mp4'}]"></vg-media>
                             <vg-controls>
                                 <vg-play-pause-button></vg-play-pause-button>
-                                <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                <vg-time-display>{{currentTime | date:'mm:ss':'+0000'}}</vg-time-display>
                                 <vg-scrub-bar>
                                     <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
                                 </vg-scrub-bar>
-                                <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-                                <vg-time-display>{{ totalTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                <vg-time-display>{{timeLeft | date:'mm:ss':'+0000'}}</vg-time-display>
+                                <vg-time-display>{{totalTime | date:'mm:ss':'+0000'}}</vg-time-display>
                                 <vg-volume>
                                     <vg-mute-button></vg-mute-button>
                                     <vg-volume-bar></vg-volume-bar>
@@ -25,6 +24,12 @@
                             </vg-controls>
                             <vg-overlay-play></vg-overlay-play>
                         </videogular>
+                        <hr>
+                        <h3>Ratings</h3>
+                        <uib-rating ng-model="vm.video.avgRating" enable-reset="false" ng-click="vm.setRating(vm.video._id, vm.video.avgRating)"></uib-rating>
+                        <h3>{{vm.video.avgRating}}</h3>
+                        <hr>
+                        <h3>Description</h3>
                         <p>{{::vm.video.description}}</p>
                     </div>
                 </div>

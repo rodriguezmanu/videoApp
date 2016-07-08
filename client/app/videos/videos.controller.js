@@ -5,10 +5,10 @@
         .module('CrossoverApp')
         .controller('VideosCtrl', VideosCtrl);
 
-    VideosCtrl.$inject = ['VideosService', '$stateParams'];
+    VideosCtrl.$inject = ['VideosService', '$stateParams', 'appConstants'];
 
     /* @ngInject */
-    function VideosCtrl(VideosService, $stateParams) {
+    function VideosCtrl(VideosService, $stateParams, appConstants) {
         var vm = this,
             apiCollection = [];
 
@@ -19,6 +19,8 @@
         vm.setRating = setRating;
         vm.stopAllVideos = stopAllVideos;
         vm.onPlayerReady = onPlayerReady;
+        vm.serverBackEnd = appConstants.serverBackEnd;
+        vm.busy = false;
 
         function onPlayerReady($API, id) {
             $API.idVideo = id;
@@ -36,16 +38,22 @@
         //mejorar esto, cambiar de conroladores o recorrer directamente en el resolve de ui router
         if ($stateParams.id) {
             getSingleVideo();
-        } else {
-            getVideos();
         }
 
         function getVideos() {
-            VideosService.getVideos(10)
+            if (vm.busy) {
+                return;
+            }
+            vm.busy = true;
+            var itemsDom = angular.element('.video').length,
+                items = (itemsDom === 0) ? 10 : itemsDom += 2;
+
+            VideosService.getVideos(items)
             .then(function(response) {
                 if (response.status === 'success') {
                     vm.videos = response.data;
                     getAverageRankings(response.data);
+                    vm.busy = false;
                 } else if (response.status === 'error') {
                     vm.errors = response.error;
                 }
@@ -92,7 +100,7 @@
                     sum += data[i].ratings[j];
                 }
                 avg = sum / j;
-                data[i].avgRating = avg;
+                data[i].avgRating = Math.round(avg);
             }
         }
 
@@ -103,7 +111,8 @@
                 sum += data.ratings[i];
             }
             avg = sum / i;
-            vm.video.avgRating = avg;
+            avg = Math.round(avg * 10) / 10;
+            vm.video.avgRating = Math.round(avg);
         }
     }
 })();

@@ -8,18 +8,20 @@
                 restrict: 'EA',
                 controller: HeaderCtrl,
                 // link: link,
-                scope: {}
+                scope: {},
+                controllerAs: 'vm'
             };
         });
 
-    HeaderCtrl.$inject = ['$scope', 'UsersService', '$state'];
+    HeaderCtrl.$inject = ['UsersService', '$state'];
 
     /* @ngInject */
-    function HeaderCtrl($scope, UsersService, $state) {
+    function HeaderCtrl(UsersService, $state) {
+        var vm = this;
 
-        $scope.isLoggedIn = UsersService.isLoggedIn;
-        $scope.getCurrentUser = UsersService.getCurrentUser;
-        $scope.logout = logout;
+        vm.isLoggedIn = UsersService.isLoggedIn;
+        vm.getCurrentUser = UsersService.getCurrentUser;
+        vm.logout = logout;
 
         function logout() {
             UsersService.logout()
@@ -29,11 +31,11 @@
                         reload: true
                     });
                 } else if (response.status === 'error') {
-                    $scope.errors = response.error;
+                    vm.errors = response.error;
                 }
             })
             .catch(function(err) {
-                $scope.errors = err.error;
+                vm.errors = err.error;
             });
         }
     }

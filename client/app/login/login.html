@@ -1,8 +1,10 @@
 <div class="container login">
     <div class="row">
         <div class="col-md-12 header-space">
-        <h1>LOGIN</h1>
-        <hr>
+            <div class="heading-center">
+                <h2 class="section-heading">Login</h2>
+                <hr>
+            </div>
             <div class="register-box col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
                 <form class="form-horizontal" name="vm.form" role="form" ng-submit="vm.login()" novalidate>
                     <div class="form-group" ng-class="{'has-success': vm.form.username.$valid && vm.submitted,'has-error': vm.form.username.$invalid && vm.submitted}">

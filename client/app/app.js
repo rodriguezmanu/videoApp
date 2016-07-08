@@ -8,12 +8,14 @@
             'ui.router',
             'ui.bootstrap',
             'angular-md5',
+            'com.2fdevs.videogular',
+            'com.2fdevs.videogular.plugins.controls',
+            'com.2fdevs.videogular.plugins.overlayplay',
+            'infinite-scroll',
+            'CrossoverApp.appConstants',
             'CrossoverApp.usersService',
             'CrossoverApp.videosService',
             'CrossoverApp.ngHeader',
-            'CrossoverApp.limitHtml',
-            'com.2fdevs.videogular',
-            'com.2fdevs.videogular.plugins.controls',
-            'com.2fdevs.videogular.plugins.overlayplay'
+            'CrossoverApp.limitHtml'
         ]);
 })();

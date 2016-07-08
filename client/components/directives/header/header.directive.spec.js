@@ -3,7 +3,6 @@
 
 describe('Directive: header', function() {
 
-    // load the directive's module and view
     beforeEach(module('CrossoverApp'));
     beforeEach(module('components/directives/header/header.html'));
 
