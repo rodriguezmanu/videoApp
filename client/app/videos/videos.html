@@ -7,7 +7,7 @@
                         <h2 class="section-heading">Videos</h2>
                         <hr>
                     </div>
-                    <div class="row">
+                    <div class="row" infinite-scroll="vm.getVideos()" infinite-scroll-disabled='vm.busy'>
                         <div class="col-md-3 video" ng-repeat="video in vm.videos">
                             <div class="boxed-content" id="{{video._id}}">
                                 <h2 class="boxed-content-title" ui-sref="root.home.video({ id: video._id })">{{::video.name}}</h2>
@@ -30,6 +30,7 @@
                                  </videogular>
                                 <uib-rating ng-model="video.avgRating" read-only="true"></uib-rating>
                                 <p ng-bind-html="video.description | limitHtml:100" ui-sref="root.home.video({ id: video._id })"></p>
+                                <h3 ng-show='vm.busy'>Loading data...</h3>
                             </div>
                         </div>
                     </div>
