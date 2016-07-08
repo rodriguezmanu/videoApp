@@ -15,17 +15,26 @@
 
         /**
         * Get All videos
-        * @param  {Object} options - optional
+        * @param  {Int} limit - optional
+        * @param  {Int} skip - optional
         * @param  {Function} callback - optional
         * @return {Promise}
         */
-        function getVideos(options, callback) {
-            //faltan las options
-            //ver por que trae 10 nomas, debe traer todos
-            var cb = callback || angular.noop;
-            var deferred = $q.defer();
+        function getVideos(limit, skip, callback) {
+            var cb = callback || angular.noop,
+                deferred = $q.defer(),
+                limitParam = '',
+                skipParam = '';
 
-            $http.get('http://localhost:3000/videos?sessionId=' + UsersService.getSessionId())
+            if (limit) {
+                limitParam = `&limit=${limit}`;
+            }
+
+            if (skip) {
+                skipParam = `&skip=${skip}`;
+            }
+
+            $http.get(`http://localhost:3000/videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`)
             .success(function(data) {
                 deferred.resolve(data);
                 return cb();
@@ -44,9 +53,9 @@
         * @return {Promise}
         */
         function getSingleVideo(id, callback) {
-            var cb = callback || angular.noop;
-            var deferred = $q.defer();
-
+            var cb = callback || angular.noop,
+                deferred = $q.defer();
+            //cambiar a es6
             $http.get('http://localhost:3000/video?sessionId=' + UsersService.getSessionId() + '&videoId=' + id)
             .success(function(data) {
                 deferred.resolve(data);
@@ -67,9 +76,9 @@
         * @return {Promise}
         */
         function setRating(id, rating, callback) {
-            var cb = callback || angular.noop;
-            var deferred = $q.defer();
-
+            var cb = callback || angular.noop,
+                deferred = $q.defer();
+            //cambiar a es6
             $http.post('http://localhost:3000/video/ratings?sessionId=' + UsersService.getSessionId(), {
                 videoId: id,
                 rating: rating

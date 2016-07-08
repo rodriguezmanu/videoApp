@@ -15,6 +15,9 @@
                     <a ui-sref="root.home.login">SignIn</a>
                     <p>{{errors}}</p>
                 </li>
+                <li ng-show="isLoggedIn()">
+                    <a ui-sref="root.home.videos">Videos</a>
+                </li>
 
                 <li class="dropdown" ng-show="isLoggedIn()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -23,9 +26,6 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a ui-sref="root.home.videos">Videos</a>
-                        </li>
                         <li>
                             <a href="" ng-click="logout()">Logout</a>
                         </li>

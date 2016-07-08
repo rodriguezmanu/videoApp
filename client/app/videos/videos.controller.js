@@ -5,12 +5,15 @@
         .module('CrossoverApp')
         .controller('VideosCtrl', VideosCtrl);
 
-    VideosCtrl.$inject = ['VideosService', '$stateParams', '$sce', '$scope'];
+    VideosCtrl.$inject = ['VideosService', '$stateParams'];
 
     /* @ngInject */
-    function VideosCtrl(VideosService, $stateParams, $sce, $scope) {
+    function VideosCtrl(VideosService, $stateParams) {
         var vm = this,
             apiCollection = [];
+
+        //agregar la variable de vm.server con localghost:3000 con ngconstant
+
         vm.getVideos = getVideos;
         vm.getSingleVideo = getSingleVideo;
         vm.setRating = setRating;
@@ -38,7 +41,7 @@
         }
 
         function getVideos() {
-            VideosService.getVideos()
+            VideosService.getVideos(10)
             .then(function(response) {
                 if (response.status === 'success') {
                     vm.videos = response.data;
@@ -57,7 +60,6 @@
             .then(function(response) {
                 if (response.status === 'success') {
                     vm.video = response.data;
-                    // vm.video.url = 'http://localhost:3000/' + response.data.url;
                     getAverageRanking(response.data);
                 } else if (response.status === 'error') {
                     vm.errors = response.error;
@@ -69,7 +71,6 @@
         }
 
         function setRating(videoId, value) {
-            console.log(videoId, value);
             VideosService.setRating(videoId, value)
             .then(function(response) {
                 if (response.status === 'success') {

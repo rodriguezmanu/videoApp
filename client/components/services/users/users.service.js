@@ -10,8 +10,8 @@
 
     /* @ngInject */
     function UsersService($location, $rootScope, $http, User, $cookieStore, $q, md5) {
-
         var currentUser = {};
+
         if ($cookieStore.get('token')) {
             currentUser = setCurrentUser();
         }
@@ -33,9 +33,9 @@
         * @return {Promise}
         */
         function login(user, callback) {
-            var cb = callback || angular.noop;
-            var deferred = $q.defer();
-
+            var cb = callback || angular.noop,
+                deferred = $q.defer();
+            //cambiar a es6
             $http.post('http://localhost:3000/user/auth', {
                 username: user.username,
                 password: md5.createHash(user.password)
@@ -63,9 +63,9 @@
          * @return {Promise}
          */
         function logout(callback) {
-            var cb = callback || angular.noop;
-            var deferred = $q.defer();
-
+            var cb = callback || angular.noop,
+                deferred = $q.defer();
+            //cambiar a es6
             $http.get('http://localhost:3000/user/logout?sessionId=' + getSessionId())
             .success(function(data) {
                 $cookieStore.remove('token');
