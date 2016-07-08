@@ -6,10 +6,10 @@
         .module('CrossoverApp.videosService')
         .service('VideosService', VideosService);
 
-    VideosService.$inject = ['$http', 'UsersService', '$q'];
+    VideosService.$inject = ['$http', 'UsersService', '$q', 'appConstants'];
 
     /* @ngInject */
-    function VideosService($http, UsersService, $q) {
+    function VideosService($http, UsersService, $q, appConstants) {
         this.getVideos = getVideos;
         this.getSingleVideo = getSingleVideo;
         this.setRating = setRating;
@@ -35,7 +35,7 @@
                 skipParam = `&skip=${skip}`;
             }
 
-            $http.get(`http://localhost:3000/videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`)
+            $http.get(`${appConstants.serverBackEnd}videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`)
             .success(function(data) {
                 deferred.resolve(data);
                 return cb();
@@ -56,8 +56,7 @@
         function getSingleVideo(id, callback) {
             var cb = callback || angular.noop,
                 deferred = $q.defer();
-            //cambiar a es6
-            $http.get('http://localhost:3000/video?sessionId=' + UsersService.getSessionId() + '&videoId=' + id)
+            $http.get(`${appConstants.serverBackEnd}video?sessionId=${UsersService.getSessionId()}&videoId=${id}`)
             .success(function(data) {
                 deferred.resolve(data);
                 return cb();
@@ -79,8 +78,7 @@
         function setRating(id, rating, callback) {
             var cb = callback || angular.noop,
                 deferred = $q.defer();
-            //cambiar a es6
-            $http.post('http://localhost:3000/video/ratings?sessionId=' + UsersService.getSessionId(), {
+            $http.post(`${appConstants.serverBackEnd}video/ratings?sessionId=${UsersService.getSessionId()}`, {
                 videoId: id,
                 rating: rating
             })

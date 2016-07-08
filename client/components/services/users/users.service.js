@@ -6,10 +6,10 @@
         .module('CrossoverApp.usersService')
         .factory('UsersService', UsersService);
 
-    UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5'];
+    UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5', 'appConstants'];
 
     /* @ngInject */
-    function UsersService($location, $rootScope, $http, $cookieStore, $q, md5) {
+    function UsersService($location, $rootScope, $http, $cookieStore, $q, md5, appConstants) {
         var currentUser = {};
 
         if ($cookieStore.get('token')) {
@@ -35,8 +35,7 @@
         function login(user, callback) {
             var cb = callback || angular.noop,
                 deferred = $q.defer();
-            //cambiar a es6
-            $http.post('http://localhost:3000/user/auth', {
+            $http.post(`${appConstants.serverBackEnd}user/auth`, {
                 username: user.username,
                 password: md5.createHash(user.password)
             })
@@ -65,8 +64,7 @@
         function logout(callback) {
             var cb = callback || angular.noop,
                 deferred = $q.defer();
-            //cambiar a es6
-            $http.get('http://localhost:3000/user/logout?sessionId=' + getSessionId())
+            $http.get(`${appConstants.serverBackEnd}user/logout?sessionId=${getSessionId()}`)
             .success(function(data) {
                 $cookieStore.remove('token');
                 currentUser = {};

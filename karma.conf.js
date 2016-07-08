@@ -33,6 +33,7 @@ module.exports = function(config) {
       'client/bower_components/videogular/videogular.js',
       'client/bower_components/videogular-controls/vg-controls.js',
       'client/bower_components/videogular-overlay-play/vg-overlay-play.js',
+      'client/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/bower_components/angular-scenario/angular-scenario.js',
       // endbower
