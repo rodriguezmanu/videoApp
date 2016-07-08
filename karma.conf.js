@@ -28,7 +28,6 @@ module.exports = function(config) {
       'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'client/bower_components/lodash/lodash.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
-      'client/bower_components/isMobile/isMobile.js',
       'client/bower_components/angular-md5/angular-md5.js',
       'client/bower_components/videogular/videogular.js',
       'client/bower_components/videogular-controls/vg-controls.js',
