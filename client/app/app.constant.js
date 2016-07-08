@@ -8,14 +8,7 @@
         .constant('constantValues', constantValues);
 
     function constantValues() {
-        return {
-            LOCALES: {
-                locales: {
-                    pt: 'Portugues',
-                    en_US: 'English'
-                },
-                preferredLocale: 'en_US'
-            }
-        };
+        //add some constant here
+        return {};
     }
 })();

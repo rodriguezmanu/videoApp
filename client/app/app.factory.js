@@ -5,25 +5,16 @@
         .module('CrossoverApp')
         .factory('authInterceptor', authInterceptor)
         .run(runApp);
-    //agregar
-    // authInterceptor.$inject = ['$location', '$rootScope', '$http', 'User', '$cookieStore', '$q', 'constantValues'];
+
+    authInterceptor.$inject = ['$location', '$cookieStore', '$q'];
 
     /* @ngInject */
-    function authInterceptor($rootScope, $q, $cookieStore, $location, LocaleService) {
+    function authInterceptor($location, $cookieStore, $q) {
         return {
-            // Add authorization token to headers
-            request: function(config) {
-
-                // if ($cookieStore.get('token')) {
-                //     config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
-                // }
-                return config;
-            },
-
             responseError: function(response) {
                 if (response.status === 401) {
+                    //change for state
                     $location.path('/login');
-                    // remove any stale tokens
                     $cookieStore.remove('token');
                     return $q.reject(response);
                 } else {
@@ -33,8 +24,7 @@
         };
     }
 
-    //agregar
-    // authInterceptor.$inject = ['$location', '$rootScope', '$http', 'User', '$cookieStore', '$q', 'constantValues'];
+    runApp.$inject = ['$rootScope','$location', 'UsersService', '$window'];
 
     /* @ngInject */
     function runApp($rootScope, $location, UsersService, $window) {
@@ -42,9 +32,11 @@
         $rootScope.$on('$stateChangeStart', function(event, toState) {
             UsersService.isLoggedInAsync(function(loggedIn) {
                 if (toState.authenticate && !loggedIn) {
+                    //cambiar por state
                     $location.path('/login');
                 }
                 if (toState.authenticate === false && loggedIn) {
+                    //cambiar por state
                     $location.path('/');
                 }
             });

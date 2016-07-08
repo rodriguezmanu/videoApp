@@ -6,10 +6,10 @@
         .module('CrossoverApp.usersService')
         .factory('UsersService', UsersService);
 
-    UsersService.$inject = ['$location', '$rootScope', '$http', 'User', '$cookieStore', '$q', 'md5'];
+    UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5'];
 
     /* @ngInject */
-    function UsersService($location, $rootScope, $http, User, $cookieStore, $q, md5) {
+    function UsersService($location, $rootScope, $http, $cookieStore, $q, md5) {
         var currentUser = {};
 
         if ($cookieStore.get('token')) {
