@@ -12,8 +12,6 @@
         var vm = this,
             apiCollection = [];
 
-        //agregar la variable de vm.server con localghost:3000 con ngconstant
-
         vm.getVideos = getVideos;
         vm.getSingleVideo = getSingleVideo;
         vm.setRating = setRating;
@@ -22,11 +20,25 @@
         vm.serverBackEnd = appConstants.serverBackEnd;
         vm.busy = false;
 
+        //mejorar esto, cambiar de conroladores o recorrer directamente en el resolve de ui router
+        if ($stateParams.id) {
+            getSingleVideo();
+        }
+
+        /**
+         * Save on load event all videos handlers in an array
+         * @param  {Object} $API Relative to videogular dependencie
+         * @param  {String} id
+         */
         function onPlayerReady($API, id) {
             $API.idVideo = id;
             apiCollection.push($API);
         }
 
+        /**
+         * Avoid multiple play videos
+         * @param  {String} id
+         */
         function stopAllVideos(id) {
             angular.forEach(apiCollection, function (value) {
                 if (value.idVideo !== id) {
@@ -35,11 +47,10 @@
             });
         }
 
-        //mejorar esto, cambiar de conroladores o recorrer directamente en el resolve de ui router
-        if ($stateParams.id) {
-            getSingleVideo();
-        }
-
+        /**
+         * Get all videos form back end, adding average ratings and work with
+         * scroll in order to load more videos
+         */
         function getVideos() {
             if (vm.busy) {
                 return;
@@ -63,6 +74,9 @@
             });
         }
 
+        /**
+         * Get a single video and add average rating for video detail
+         */
         function getSingleVideo() {
             VideosService.getSingleVideo($stateParams.id)
             .then(function(response) {
@@ -78,6 +92,11 @@
             });
         }
 
+        /**
+         * Set new rating
+         * @param {String} videoId
+         * @param {Int} value
+         */
         function setRating(videoId, value) {
             VideosService.setRating(videoId, value)
             .then(function(response) {
@@ -92,6 +111,10 @@
             });
         }
 
+        /**
+         * Get average ratings for all videos
+         * @param  {Object} data
+         */
         function getAverageRankings(data) {
             for (var i = 0; i < data.length; i++) {
                 var avg = 0,
@@ -104,6 +127,10 @@
             }
         }
 
+        /**
+         * Get average rating for a single video
+         * @param  {Object} data
+         */
         function getAverageRanking(data) {
             var avg = 0,
                 sum = 0;

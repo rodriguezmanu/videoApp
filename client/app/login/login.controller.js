@@ -16,6 +16,9 @@
         vm.errors = {};
         vm.login = login;
 
+        /**
+         * Login service in iorder to access to see videos list and detail
+         */
         function login() {
             vm.submitted = true;
             if (vm.form.$valid) {

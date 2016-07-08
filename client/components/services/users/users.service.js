@@ -21,7 +21,6 @@
             getCurrentUser: getCurrentUser,
             isLoggedIn: isLoggedIn,
             isLoggedInAsync: isLoggedInAsync,
-            getToken: getToken,
             getSessionId: getSessionId
         };
         return service;
@@ -125,14 +124,6 @@
             } else {
                 cb(false);
             }
-        }
-
-        /**
-         * Get auth token
-         *  @return {Object} token
-         */
-        function getToken() {
-            return $cookieStore.get('token');
         }
 
         /**

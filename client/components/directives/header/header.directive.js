@@ -7,7 +7,6 @@
                 templateUrl: 'components/directives/header/header.html',
                 restrict: 'EA',
                 controller: HeaderCtrl,
-                // link: link,
                 scope: {},
                 controllerAs: 'vm'
             };
@@ -23,6 +22,9 @@
         vm.getCurrentUser = UsersService.getCurrentUser;
         vm.logout = logout;
 
+        /**
+         * Logout service
+         */
         function logout() {
             UsersService.logout()
             .then(function(response) {
@@ -39,19 +41,4 @@
             });
         }
     }
-
-    // function link(scope, element, attr) {
-    // var desktop,
-    //     tablet,
-    //     phone,
-    //     device;
-
-    //device detection
-    // desktop = (!isMobile.phone && !isMobile.tablet) ? 'desktop' : undefined;
-    // tablet = (isMobile.tablet) ? 'tablet' : undefined;
-    // phone = (isMobile.phone) ? 'phone' : undefined;
-    // device = desktop || tablet || phone;
-
-    // $('body').addClass(device);
-    // }
 })();
