@@ -11,11 +11,11 @@
             'com.2fdevs.videogular',
             'com.2fdevs.videogular.plugins.controls',
             'com.2fdevs.videogular.plugins.overlayplay',
-            'infinite-scroll',
             'CrossoverApp.appConstants',
             'CrossoverApp.usersService',
             'CrossoverApp.videosService',
             'CrossoverApp.ngHeader',
-            'CrossoverApp.limitHtml'
+            'CrossoverApp.limitHtml',
+            'CrossoverApp.whenScrolled'
         ]);
 })();

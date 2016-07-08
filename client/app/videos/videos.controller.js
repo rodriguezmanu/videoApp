@@ -25,6 +25,8 @@
         //mejorar esto, cambiar de conroladores o recorrer directamente en el resolve de ui router
         if ($stateParams.id) {
             getSingleVideo();
+        } else {
+            getVideos();
         }
 
         /**

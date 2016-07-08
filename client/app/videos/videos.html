@@ -7,7 +7,7 @@
                         <h2 class="section-heading">Videos</h2>
                         <hr>
                     </div>
-                    <div class="row" infinite-scroll="vm.getVideos()" infinite-scroll-disabled="vm.busy">
+                    <div class="row" when-scrolled="vm.getVideos()">
                         <div class="col-md-3 video" ng-repeat="video in vm.videos">
                             <div class="boxed-content">
                                 <h2 class="boxed-content-title" ui-sref="root.home.video({ id: video._id })">

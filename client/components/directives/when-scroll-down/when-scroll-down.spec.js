@@ -1,10 +1,9 @@
 /* jshint -W117, -W030 */
 'use strict';
 
-describe('Directive: header', function() {
+describe('Directive: when scroll down', function() {
 
     beforeEach(module('CrossoverApp'));
-    beforeEach(module('components/directives/header/header.html'));
 
     var element,
         scope;
@@ -12,7 +11,7 @@ describe('Directive: header', function() {
     beforeEach(inject(function($rootScope, $compile) {
         scope = $rootScope.$new();
 
-        element = angular.element('<ng-header></ng-header>');
+        element = angular.element('<div when-scrolled></div>');
         element = $compile(element)(scope);
         scope.$digest();
     }));
