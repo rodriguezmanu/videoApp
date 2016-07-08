@@ -13,6 +13,7 @@ function requiredProcessEnv(name) {
 // All configurations will extend these options
 // ============================================
 var all = {
+  //enviroment
   env: process.env.NODE_ENV,
 
   // Root path of server
@@ -22,34 +23,7 @@ var all = {
   port: process.env.PORT || 9000,
 
   // Server IP
-  ip: process.env.IP || '0.0.0.0',
-
-  // Secret for session, you will want to change this and make it an environment variable
-  secrets: {
-    session: 'corssover-secret'
-  },
-
-  // List of user roles
-  userRoles: ['guest', 'user', 'owner', 'flixer', 'flixer-admin', 'admin'],
-
-  //expiration time login
-  expirationTime: 1800,
-
-  // Should we populate the DB with sample data?
-  seedDB: false,
-
-  // MongoDB connection options
-  mongo: {
-    uri: process.env.MONGOLAB_URI ||
-      process.env.MONGOHQ_URL ||
-      process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME ||
-      'mongodb://localhost/corssover-dev',
-    options: {
-      db: {
-        safe: true
-      }
-    }
-  }
+  ip: process.env.IP || '0.0.0.0'
 };
 
 // Export the config object based on the NODE_ENV

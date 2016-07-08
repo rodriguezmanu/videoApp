@@ -29,27 +29,27 @@
                         reload: true
                     });
                 } else if (response.status === 'error') {
-                    scope.errors = response.error;
+                    $scope.errors = response.error;
                 }
             })
             .catch(function(err) {
-                scope.errors = response.error;
+                $scope.errors = err.error;
             });
         }
     }
 
     // function link(scope, element, attr) {
-        // var desktop,
-        //     tablet,
-        //     phone,
-        //     device;
+    // var desktop,
+    //     tablet,
+    //     phone,
+    //     device;
 
-        //device detection
-        // desktop = (!isMobile.phone && !isMobile.tablet) ? 'desktop' : undefined;
-        // tablet = (isMobile.tablet) ? 'tablet' : undefined;
-        // phone = (isMobile.phone) ? 'phone' : undefined;
-        // device = desktop || tablet || phone;
+    //device detection
+    // desktop = (!isMobile.phone && !isMobile.tablet) ? 'desktop' : undefined;
+    // tablet = (isMobile.tablet) ? 'tablet' : undefined;
+    // phone = (isMobile.phone) ? 'phone' : undefined;
+    // device = desktop || tablet || phone;
 
-        // $('body').addClass(device);
+    // $('body').addClass(device);
     // }
 })();

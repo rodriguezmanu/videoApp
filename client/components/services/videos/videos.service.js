@@ -1,4 +1,5 @@
 (function() {
+    /*jshint validthis:true */
     'use strict';
 
     angular

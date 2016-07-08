@@ -22,8 +22,8 @@
 
         function onPlayerReady($API, id) {
             $API.idVideo = id;
-            apiCollection.push($API)
-        };
+            apiCollection.push($API);
+        }
 
         function stopAllVideos(id) {
             angular.forEach(apiCollection, function (value) {
@@ -51,7 +51,7 @@
                 }
             })
             .catch(function(err) {
-                vm.errors = response.error;
+                vm.errors = err.error;
             });
         }
 
@@ -74,7 +74,7 @@
             VideosService.setRating(videoId, value)
             .then(function(response) {
                 if (response.status === 'success') {
-                    getAverageRanking(response.data)
+                    getAverageRanking(response.data);
                 } else if (response.status === 'error') {
                     vm.errors = response.error;
                 }

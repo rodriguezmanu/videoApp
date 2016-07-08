@@ -73,10 +73,6 @@ module.exports = function(grunt) {
             files : [ '<%= yeoman.client %>/{app,components}/**/*.css' ],
             tasks : [ 'injector:css' ]
           },
-          mochaTest : {
-            files : [ 'server/**/*.spec.js' ],
-            tasks : [ 'env:test', 'mochaTest' ]
-          },
           jsTest : {
             files : [
                 '<%= yeoman.client %>/{app,components}/**/*.spec.js',
@@ -136,18 +132,6 @@ module.exports = function(grunt) {
             jshintrc : '<%= yeoman.client %>/.jshintrc',
             reporter : require('jshint-stylish')
           },
-          server : {
-            options : {
-              jshintrc : 'server/.jshintrc'
-            },
-            src : [ 'server/**/*.js', '!server/**/*.spec.js' ]
-          },
-          serverTest : {
-            options : {
-              jshintrc : 'server/.jshintrc-spec'
-            },
-            src : [ 'server/**/*.spec.js' ]
-          },
           all : [
               '<%= yeoman.client %>/{app,components}/**/*.js',
               '<%= yeoman.client %>/{app,components}/**/*.spec.js',
@@ -197,38 +181,6 @@ module.exports = function(grunt) {
           }
         },
 
-        // Use nodemon to run server in debug mode with an initial
-        // breakpoint
-        nodemon : {
-          debug : {
-            script : 'server/app.js',
-            options : {
-              nodeArgs : [ '--debug-brk' ],
-              env : {
-                PORT : process.env.PORT || 9000
-              },
-              callback : function(nodemon) {
-                nodemon.on('log', function(event) {
-                  console.log(event.colour);
-                });
-
-                // opens browser on initial server start
-                nodemon
-                    .on(
-                        'config:update',
-                        function() {
-                          setTimeout(
-                              function() {
-                                require('open')
-                                    (
-                                        'http://localhost:8080/debug?port=5858');
-                              }, 500);
-                        });
-              }
-            }
-          }
-        },
-
         // Automatically inject Bower components into the app
         wiredep : {
           test: {
@@ -244,7 +196,7 @@ module.exports = function(grunt) {
                 '/es5-shim/',
                 '/bootstrap.css/',
                 '/font-awesome.css/',
-                'slick-theme.css' ]
+                '/videogular.css' ]
           }
         },
 
@@ -438,13 +390,6 @@ module.exports = function(grunt) {
           }
         },
 
-        mochaTest : {
-          options : {
-            reporter : 'spec'
-          },
-          src : [ 'server/**/*.spec.js' ]
-        },
-
         protractor : {
           options : {
             configFile : 'protractor.conf.js'
@@ -625,20 +570,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', function(target) {
     if (target === 'server') {
-      return grunt.task.run([ 'env:all', 'env:test', 'mochaTest' ]);
+      return grunt.task.run([ 'env:all', 'env:test' ]);
     }
 
     else if (target === 'client') {
       return grunt.task.run([ 'clean:server', 'env:all', 'injector:less',
           'concurrent:test', 'injector', 'autoprefixer', 'wiredep:test', 'karma' ]);
     }
-
-    else if (target === 'e2e') {
-      return grunt.task.run([ 'clean:server', 'env:all', 'env:test',
-          'injector:less', 'concurrent:test', 'injector', 'wiredep',
-          'autoprefixer', 'express:dev', 'protractor' ]);
-    }
-
     else
       grunt.task.run(['test:server', 'test:client']);
   });
@@ -650,5 +588,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 
-  grunt.registerTask('lint', ['jscs:all', 'jscs:app', 'jshint:all', 'jshint:server']);
+  grunt.registerTask('lint', ['jscs:all', 'jscs:app', 'jshint:all']);
 };
