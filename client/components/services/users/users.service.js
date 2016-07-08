@@ -131,9 +131,7 @@
          *  @return {String} sessionId
          */
         function getSessionId() {
-            if (isLoggedIn()) {
-                return $cookieStore.get('token').sessionId;
-            }
+            return $cookieStore.get('token').sessionId;
         }
     }
 })();

@@ -35,7 +35,9 @@
                 skipParam = `&skip=${skip}`;
             }
 
-            $http.get(`${appConstants.serverBackEnd}videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`)
+            $http.get(
+                `${appConstants.serverBackEnd}videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`
+            )
             .success(function(data) {
                 deferred.resolve(data);
                 return cb();

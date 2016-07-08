@@ -17,6 +17,8 @@
         vm.setRating = setRating;
         vm.stopAllVideos = stopAllVideos;
         vm.onPlayerReady = onPlayerReady;
+        vm.getAverageRanking = getAverageRanking;
+        vm.getAverageRankings = getAverageRankings;
         vm.serverBackEnd = appConstants.serverBackEnd;
         vm.busy = false;
 
