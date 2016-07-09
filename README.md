@@ -1,26 +1,19 @@
-### To start working with the project run:
+### Croosover Video
 
 Install:
-
-* node.js
-
+* nodejs
 * mongodb
-
 * bower by npm - npm install -g bower
 * grunt by npm - npm install -g grunt-cli
-* yoeman by npm -npm install -g yo
-* fullstrack angular by npm - npm install -g generator-angular-fullstack
 
 Run:
-
 * mongod
-
 * npm install
 * bower install
-* grunt serve(to init the server)
+* grunt serve - (dev mode) or grunt serve:dist (prod mode)
 
-Styling angularjs:
+* To run unit test: grunt test
+* To run lint javascript: grunt lint
 
-* https://github.com/toddmotto/angularjs-styleguide
-* https://github.com/johnpapa/angular-styleguide
-
+Notes:
+This app running with video_portal_api on http://localhost:3000 if you want change it, please change ngconstant in gruntFile.js

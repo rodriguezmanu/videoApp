@@ -6,13 +6,6 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
-    // testing framework to use (jasmine/mocha/qunit/...)
-    // frameworks: [
-    //         'mocha',
-    //         'chai',
-    //         'sinon'
-    //         ],
-
     frameworks:['jasmine'],
     // list of files / patterns to load in the browser
     files: [
@@ -41,15 +34,12 @@ module.exports = function(config) {
       'client/app/**/*.js',
       'client/components/**/*.js',
       'client/app/**/*.html',
-      'client/components/**/*.html',
-      'client/specHelper.js'//eliminar
+      'client/components/**/*.html'
     ],
 
     preprocessors: {
-      '**/*.jade': 'ng-jade2js',
       '**/*.html': 'html2js',
       'client/app/**/*.js': 'babel',
-      '**/*.coffee': 'coffee',
       'client/app/**/*.js': ['coverage'],
       'client/components/**/*.js': ['coverage', 'babel']
     },

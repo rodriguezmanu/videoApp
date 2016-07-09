@@ -104,7 +104,7 @@
          * @return {Boolean}
          */
         function isLoggedIn() {
-            //here should be more secure add in backend a getUserBySessionId method in order to call it to prevent
+            //should be more secure add in backend a getUserBySessionId method in order to call it to prevent
             //injection in cookie
             return (_.hasIn(currentUser, 'sessionId')) ? true : false;
         }
@@ -131,7 +131,9 @@
          *  @return {String} sessionId
          */
         function getSessionId() {
-            return $cookieStore.get('token').sessionId;
+            if (isLoggedIn()) {
+                return $cookieStore.get('token').sessionId;
+            }
         }
     }
 })();

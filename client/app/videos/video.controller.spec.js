@@ -5,8 +5,7 @@ describe('Controller: VideosCtrl', function () {
     beforeEach(module('CrossoverApp'));
 
     var VideosCtrl,
-        scope,
-        mockDataSvc;
+        scope;
 
     var mockDataVideos = [
         {
@@ -26,36 +25,19 @@ describe('Controller: VideosCtrl', function () {
     ];
 
     var mockDataVideo = {
-        _id: "577 d101fbbae834c3c2b1a52",
-        name:" [3] How does Node.js work",
-        description: "New to Node.js ? Check out this video that explain",
-        url: "videos/How_does_Node.js_work.mp4",
+        _id: '577 d101fbbae834c3c2b1a52',
+        name: ' [3] How does Node.js work',
+        description: 'New to Node.js ? Check out this video that explain',
+        url: 'videos/How_does_Node.js_work.mp4',
         ratings: [3, 3, 3]
     };
 
-    beforeEach(inject(function ($controller, $rootScope, VideosService) {
-        scope = $rootScope.$new();
-        mockDataSvc = VideosService;
-        // spyOn(mockDataSvc,'getVideos').andCallThrough();
-        // console.log(mockDataSvc);
-        // console.log(mockDataSvc);
-        // spyOn(mockDataSvc, 'getVideos').and.returnValue({id: 3});
-
-        VideosCtrl = $controller('VideosCtrl', {
-            VideosService: mockDataSvc
+    beforeEach(inject(function ($controller, $rootScope) {
+         VideosCtrl = $controller('VideosCtrl', {
+            $scope: scope
         });
     }));
 
-
-    // beforeEach(inject(function($rootScope, $controller, dataSvc){
-    //   scope=$rootScope.$new();
-    //   mockDataSvc=dataSvc;
-    //   spyOn(mockDataSvc,'save').andCallThrough();
-    //   firstController = $controller('FirstController', {
-    //     $scope: scope,
-    //     dataSvc: mockDataSvc
-    //   });
-    // }));
     it('testing average ratings in all videos', function () {
         VideosCtrl.getAverageRankings(mockDataVideos);
         expect(mockDataVideos[0].avgRating).toEqual(3);
@@ -67,11 +49,4 @@ describe('Controller: VideosCtrl', function () {
         VideosCtrl.getAverageRanking(mockDataVideo);
         expect(mockDataVideo.avgRating).toEqual(3);
     });
-
-    // it('should behave...', function() {
-        // console.log(VideosService);
-        // console.log(mockDataSvc.getVideos());
-        // console.log(VideosCtrl);
-        // spyOn(VideosCtrl.VideosService, 'getVideos').and.returnValue({id: 3});
-    // });
 });
