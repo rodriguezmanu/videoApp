@@ -28,6 +28,7 @@
                         <h3>Ratings</h3>
                         <uib-rating ng-model="vm.video.avgRating" enable-reset="false" ng-click="vm.setRating(vm.video._id, vm.video.avgRating)"></uib-rating>
                         <h3>{{vm.video.avgRating}}</h3>
+                        <p>{{::vm.errors}}</p>
                         <hr>
                         <h3>Description</h3>
                         <p>{{::vm.video.description}}</p>
