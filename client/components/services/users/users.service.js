@@ -131,7 +131,7 @@
          *  @return {String} sessionId
          */
         function getSessionId() {
-            if (this.isLoggedIn()) {
+            if (isLoggedIn()) {
                 return $cookieStore.get('token').sessionId;
             }
         }

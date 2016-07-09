@@ -48,7 +48,7 @@
         }
 
         /**
-         * Get all videos form back end, adding average ratings and work with
+         * Get all videos from back end, adding average ratings and work with
          * scroll in order to load more videos
          */
         function getVideos() {

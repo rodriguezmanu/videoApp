@@ -13,7 +13,6 @@
         return {
             responseError: function(response) {
                 if (response.status === 401) {
-                    //change for state
                     $location.path('/login');
                     $cookieStore.remove('token');
                     return $q.reject(response);
@@ -32,11 +31,9 @@
         $rootScope.$on('$stateChangeStart', function(event, toState) {
             UsersService.isLoggedInAsync(function(loggedIn) {
                 if (toState.authenticate && !loggedIn) {
-                    //cambiar por state
                     $location.path('/login');
                 }
                 if (toState.authenticate === false && loggedIn) {
-                    //cambiar por state
                     $location.path('/');
                 }
             });

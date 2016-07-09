@@ -8,6 +8,7 @@
                         <hr>
                     </div>
                     <div class="row" when-scrolled="vm.getVideos()">
+                        <p ng-show="vm.errors">{{::vm.errors}}</p>
                         <div class="col-md-3 video" ng-repeat="video in vm.videos">
                             <div class="boxed-content">
                                 <h2 class="boxed-content-title" ui-sref="root.home.video({ id: video._id })">

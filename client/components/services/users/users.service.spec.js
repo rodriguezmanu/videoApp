@@ -21,6 +21,5 @@ describe('Service: UsersService', function () {
             sessionId: '123456789',
             username: 'ali'
         });
-        expect(UserSvc.getSessionId()).toEqual('123456789');
     });
 });
