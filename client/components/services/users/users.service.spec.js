@@ -1,3 +1,4 @@
+/* jshint -W117, -W030 */
 'use strict';
 
 describe('Service: UsersService', function () {
@@ -10,10 +11,12 @@ describe('Service: UsersService', function () {
     beforeEach(inject(function (UsersService, _$cookieStore_) {
         UserSvc = UsersService;
         cookies = _$cookieStore_;
-
+        spyOn(UserSvc, 'isLoggedIn').andCallFake(function() {
+            return true;
+        });
     }));
 
-    it('Teting get Session Id from cookie', function() {
+    it('Testing get Session Id from cookie', function() {
         cookies.put('token', {
             sessionId: '123456789',
             username: 'ali'

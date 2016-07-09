@@ -454,6 +454,14 @@ module.exports = function(grunt) {
           options : {
             sourceMap : true
           },
+          client: {
+            files: [{
+              expand: true,
+              cwd: '<%= yeoman.client %>',
+              src: ['{app,components}/**/!(*.spec).js'],
+              dest: '.tmp'
+            }]
+          },
           server : {
             files : [ {
               expand : true,
@@ -620,7 +628,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [ 'clean:dist', 'injector:less',
       'concurrent:dist', 'injector', 'wiredep', 'useminPrepare',
       'autoprefixer', 'ngtemplates', 'concat', 'ngAnnotate', 'copy:dist',
-      'cdnify', 'cssmin', 'uglify', 'rev', 'usemin' ]);
+      'cdnify', 'cssmin', 'uglify', 'babel:client', 'rev', 'usemin' ]);
 
   grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 
