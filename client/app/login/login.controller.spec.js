@@ -3,7 +3,7 @@
 
 describe('Controller: LoginCtrl', function () {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var LoginCtrl,
       scope,

@@ -187,7 +187,7 @@ module.exports = function(grunt) {
           options: {
             space: '  ',
             wrap: "'use strict';\n// jshint ignore:start\n// jscs:disable\n{%= __ngModule %}\n// jshint ignore:end \n ",
-            name: 'CrossoverApp.appConstants',
+            name: 'VideoApp.appConstants',
             dest: '<%= yeoman.client %>/app/constants.js'
           },
           // Environment targets
@@ -195,7 +195,7 @@ module.exports = function(grunt) {
             constants: {
               appConstants: {
                 name: 'local',
-                serverBackEnd: 'http://localhost:3000/'
+                serverBackEnd: 'https://video-platform-api.herokuapp.com/'
               }
             }
           },
@@ -203,7 +203,7 @@ module.exports = function(grunt) {
             constants: {
               appConstants: {
                 name: 'development',
-                serverBackEnd: 'http://localhost:3000/'
+                serverBackEnd: 'https://video-platform-api.herokuapp.com/'
               }
             }
           },
@@ -211,7 +211,7 @@ module.exports = function(grunt) {
             constants: {
               appConstants: {
                 name: 'prod',
-                serverBackEnd: 'http://localhost:3000/'
+                serverBackEnd: 'https://video-platform-api.herokuapp.com/'
               }
             }
           }
@@ -328,7 +328,7 @@ module.exports = function(grunt) {
         ngtemplates : {
           options : {
             // This should be the name of your apps angular module
-            module : 'CrossoverApp',
+            module : 'VideoApp',
             htmlmin : {
               collapseBooleanAttributes : false,
               collapseWhitespace : true,

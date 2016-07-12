@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .factory('authInterceptor', authInterceptor)
         .run(runApp);
 

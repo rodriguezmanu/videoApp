@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.videosService', []);
+        .module('VideoApp.videosService', []);
 })();

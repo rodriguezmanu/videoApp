@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.usersService')
+        .module('VideoApp.usersService')
         .factory('UsersService', UsersService);
 
     UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5', 'appConstants'];

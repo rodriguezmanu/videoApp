@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.limitHtml')
+        .module('VideoApp.limitHtml')
         .filter('limitHtml', filter);
 
     function filter() {

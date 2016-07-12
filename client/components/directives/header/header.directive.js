@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.ngHeader').directive('ngHeader', function() {
+        .module('VideoApp.ngHeader').directive('ngHeader', function() {
             return {
                 templateUrl: 'components/directives/header/header.html',
                 restrict: 'EA',

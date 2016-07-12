@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .controller('VideosDetailsCtrl', VideosDetailsCtrl);
 
     VideosDetailsCtrl.$inject = ['getSingleVideo', 'appConstants', 'VideosService'];

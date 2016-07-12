@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.ngHeader', []);
+        .module('VideoApp.ngHeader', []);
 })();

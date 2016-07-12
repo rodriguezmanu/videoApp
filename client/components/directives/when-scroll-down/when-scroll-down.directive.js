@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.whenScrolled')
+        .module('VideoApp.whenScrolled')
         .directive('whenScrolled', directive);
 
     directive.$inject = ['$window'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .controller('MainCtrl', MainCtrl);
 
     MainCtrl.$inject = [];

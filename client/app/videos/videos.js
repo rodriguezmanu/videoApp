@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .config(function ($stateProvider) {
            $stateProvider
             .state('root.home.videos', {

@@ -3,7 +3,7 @@
 
 describe('Filter: Limit Filter', function () {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var filter;
 

@@ -3,7 +3,7 @@
 
 describe('Controller: VideosDetailsCtrl', function () {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var VideosDetailsCtrl,
         scope;

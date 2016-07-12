@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp.videosService')
+        .module('VideoApp.videosService')
         .service('VideosService', VideosService);
 
     VideosService.$inject = ['$http', 'UsersService', '$q', 'appConstants'];

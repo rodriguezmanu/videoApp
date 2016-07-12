@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp', [
+        .module('VideoApp', [
             'ngCookies',
             'ngSanitize',
             'ui.router',
@@ -11,11 +11,11 @@
             'com.2fdevs.videogular',
             'com.2fdevs.videogular.plugins.controls',
             'com.2fdevs.videogular.plugins.overlayplay',
-            'CrossoverApp.appConstants',
-            'CrossoverApp.usersService',
-            'CrossoverApp.videosService',
-            'CrossoverApp.ngHeader',
-            'CrossoverApp.limitHtml',
-            'CrossoverApp.whenScrolled'
+            'VideoApp.appConstants',
+            'VideoApp.usersService',
+            'VideoApp.videosService',
+            'VideoApp.ngHeader',
+            'VideoApp.limitHtml',
+            'VideoApp.whenScrolled'
         ]);
 })();

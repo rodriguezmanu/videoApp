@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .controller('VideosCtrl', VideosCtrl);
 
     VideosCtrl.$inject = ['VideosService', 'appConstants'];

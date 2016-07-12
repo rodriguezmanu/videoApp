@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .controller('LoginCtrl', LoginCtrl);
 
     LoginCtrl.$inject = ['UsersService', '$state'];

@@ -2,7 +2,7 @@
 'use strict';
 
 describe('Controller: VideosCtrl', function() {
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var VideosCtrl,
         $scope,

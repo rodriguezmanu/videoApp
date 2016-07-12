@@ -3,7 +3,7 @@
 
 describe('Directive: header', function() {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
     beforeEach(module('components/directives/header/header.html'));
 
     var element,

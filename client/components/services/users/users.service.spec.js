@@ -3,7 +3,7 @@
 
 describe('Service: UsersService', function () {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var UserSvc,
         cookies;

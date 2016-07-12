@@ -3,7 +3,7 @@
 
 describe('Directive: when scroll down', function() {
 
-    beforeEach(module('CrossoverApp'));
+    beforeEach(module('VideoApp'));
 
     var element,
         scope;

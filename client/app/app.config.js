@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('CrossoverApp')
+        .module('VideoApp')
         .config(configuration);
 
     configuration.$inject = ['$urlRouterProvider', '$locationProvider', '$httpProvider'];
