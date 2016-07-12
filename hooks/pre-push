@@ -16,10 +16,4 @@ RESULT2=$?
 
 [ $RESULT2 -ne 0 ] && exit 1
 
-echo "Running Grunt test e2e..."
-
-npm run update-webdriver
-RESULT3=$?
-
-[ $RESULT3 -ne 0 ] && exit 1
 exit 0
