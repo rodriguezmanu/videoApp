@@ -80,7 +80,8 @@
   },
   "scripts": {
     "start": "node server/app.js",
-    "test": "grunt test"
+    "test": "grunt test",
+    "heroku-postbuild": "bower install && grunt serve:dist"
   },
   "private": true
 }
