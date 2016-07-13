@@ -63,7 +63,7 @@
         function logout(callback) {
             var cb = callback || angular.noop,
                 deferred = $q.defer();
-            $http.get(`${appConstants.serverBackEnd}user/logout?sessionId=${getSessionId()}`)
+            $http.get(`${appConstants.serverBackEnd}user/logout?sessionId=${this.getSessionId()}`)
             .success(function(data) {
                 $cookieStore.remove('token');
                 currentUser = {};
@@ -119,7 +119,7 @@
                 }).catch(function() {
                     cb(false);
                 });
-            } else if (isLoggedIn()) {
+            } else if (this.isLoggedIn()) {
                 cb(true);
             } else {
                 cb(false);
@@ -130,8 +130,8 @@
          * Get sessionId
          *  @return {String} sessionId
          */
-        function getSessionId() {
-            if (isLoggedIn()) {
+        function getSessionId(a) {
+            if (this.isLoggedIn()) {
                 return $cookieStore.get('token').sessionId;
             }
         }
