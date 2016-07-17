@@ -1,15 +1,14 @@
 (function() {
-    /*jshint validthis:true */
     'use strict';
 
     angular
         .module('VideoApp.videosService')
         .service('VideosService', VideosService);
 
-    VideosService.$inject = ['$http', 'UsersService', '$q', 'appConstants'];
+    VideosService.$inject = ['$http', 'UsersService', '$q', 'appConstants', '$log'];
 
     /* @ngInject */
-    function VideosService($http, UsersService, $q, appConstants) {
+    function VideosService($http, UsersService, $q, appConstants, $log) {
         this.getVideos = getVideos;
         this.getSingleVideo = getSingleVideo;
         this.setRating = setRating;
@@ -18,13 +17,10 @@
         * Get All videos
         * @param  {Int} limit - optional
         * @param  {Int} skip - optional
-        * @param  {Function} callback - optional
         * @return {Promise}
         */
-        function getVideos(limit, skip, callback) {
-            var cb = callback || angular.noop,
-                deferred = $q.defer(),
-                limitParam = '',
+        function getVideos(limit, skip) {
+            var limitParam = '',
                 skipParam = '';
 
             if (limit) {
@@ -35,64 +31,68 @@
                 skipParam = `&skip=${skip}`;
             }
 
-            $http.get(
+            return $http.get(
                 `${appConstants.serverBackEnd}videos?sessionId=${UsersService.getSessionId()}${skipParam}${limitParam}`
-            )
-            .success(function(data) {
-                deferred.resolve(data);
-                return cb();
-            })
-            .error(function(err) {
-                deferred.reject(err);
-                return cb(err);
-            }.bind(this));
-            return deferred.promise;
+                )
+                .then(getVideosComplete)
+                .catch(getVideosFailed);
+
+            function getVideosComplete(response) {
+                return response.data;
+            }
+
+            function getVideosFailed(error) {
+                $log.error('XHR Failed for getVideos. ' + error.data.error);
+                return error.data;
+            }
         }
 
         /**
         * Get single video
         * @param  {String} id
-        * @param  {Function} callback - optional
         * @return {Promise}
         */
-        function getSingleVideo(id, callback) {
-            var cb = callback || angular.noop,
-                deferred = $q.defer();
-            $http.get(`${appConstants.serverBackEnd}video?sessionId=${UsersService.getSessionId()}&videoId=${id}`)
-            .success(function(data) {
-                deferred.resolve(data);
-                return cb();
-            })
-            .error(function(err) {
-                deferred.reject(err);
-                return cb(err);
-            }.bind(this));
-            return deferred.promise;
+        function getSingleVideo(id) {
+            return $http.get(
+                `${appConstants.serverBackEnd}video?sessionId=${UsersService.getSessionId()}&videoId=${id}`
+                )
+                .then(getSingleVideoComplete)
+                .catch(getSingleVideoFailed);
+
+            function getSingleVideoComplete(response) {
+                return response.data;
+            }
+
+            function getSingleVideoFailed(error) {
+                $log.error('XHR Failed for getSingleVideo. ' + error.data.error);
+                return error.data;
+            }
         }
 
         /**
         * Set rating to a video
         * @param  {String} id
         * @param  {String} rating
-        * @param  {Function} callback - optional
         * @return {Promise}
         */
-        function setRating(id, rating, callback) {
-            var cb = callback || angular.noop,
-                deferred = $q.defer();
-            $http.post(`${appConstants.serverBackEnd}video/ratings?sessionId=${UsersService.getSessionId()}`, {
+        function setRating(id, rating) {
+
+            return $http.post(`${appConstants.serverBackEnd}video/ratings?sessionId=${UsersService.getSessionId()}`,
+            {
                 videoId: id,
                 rating: rating
             })
-            .success(function(data) {
-                deferred.resolve(data);
-                return cb();
-            })
-            .error(function(err) {
-                deferred.reject(err);
-                return cb(err);
-            }.bind(this));
-            return deferred.promise;
+            .then(setRatingComplete)
+            .catch(setRatingFailed);
+
+            function setRatingComplete(response) {
+                return response.data;
+            }
+
+            function setRatingFailed(error) {
+                $log.error('XHR Failed for setRating. ' + error.data.error);
+                return error.data;
+            }
         }
     }
 })();

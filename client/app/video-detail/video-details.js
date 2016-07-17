@@ -9,22 +9,8 @@
                 url: '^/video/:id',
                 authenticate: true,
                 resolve: {
-                    getSingleVideo: function(VideosService, $state, $stateParams, $q) {
-                        var deferred = $q.defer();
-                        VideosService.getSingleVideo($stateParams.id)
-                        .then(function(response) {
-                            if (response.status === 'success') {
-                                deferred.resolve(response.data);
-                            } else if (response.status === 'error') {
-                                deferred.reject(response);
-                                $state.go('root.home.videos');
-                            }
-                        })
-                        .catch(function(err) {
-                            deferred.reject(err);
-                            $state.go('root.home.videos');
-                        });
-                        return deferred.promise;
+                    getSingleVideo: function(VideosService, $stateParams) {
+                        return VideosService.getSingleVideo($stateParams.id);
                     }
                 },
                 views: {

@@ -4,10 +4,10 @@
         .module('VideoApp')
         .controller('VideosDetailsCtrl', VideosDetailsCtrl);
 
-    VideosDetailsCtrl.$inject = ['getSingleVideo', 'appConstants', 'VideosService'];
+    VideosDetailsCtrl.$inject = ['getSingleVideo', 'appConstants', 'VideosService', '$state'];
 
     /* @ngInject */
-    function VideosDetailsCtrl(getSingleVideo, appConstants, VideosService) {
+    function VideosDetailsCtrl(getSingleVideo, appConstants, VideosService, $state) {
         var vm = this;
 
         vm.setRating = setRating;
@@ -17,8 +17,12 @@
         activate();
 
         function activate() {
-            vm.video = getSingleVideo;
-            getAverageRanking(getSingleVideo);
+            if (getSingleVideo.status === 'success') {
+                vm.video = getSingleVideo.data;
+                getAverageRanking(getSingleVideo.data);
+            } else {
+                $state.go('root.home.videos');
+            }
         }
 
         /**
