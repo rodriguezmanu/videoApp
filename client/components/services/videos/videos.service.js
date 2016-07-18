@@ -77,13 +77,14 @@
         */
         function setRating(id, rating) {
 
-            return $http.post(`${appConstants.serverBackEnd}video/ratings?sessionId=${UsersService.getSessionId()}`,
-            {
-                videoId: id,
-                rating: rating
-            })
-            .then(setRatingComplete)
-            .catch(setRatingFailed);
+            return $http.post(
+                `${appConstants.serverBackEnd}video/ratings?sessionId=${UsersService.getSessionId()}`,
+                {
+                    videoId: id,
+                    rating: rating
+                })
+                .then(setRatingComplete)
+                .catch(setRatingFailed);
 
             function setRatingComplete(response) {
                 return response.data;

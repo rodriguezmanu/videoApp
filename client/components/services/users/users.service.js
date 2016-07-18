@@ -6,10 +6,10 @@
         .module('VideoApp.usersService')
         .factory('UsersService', UsersService);
 
-    UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5', 'appConstants'];
+    UsersService.$inject = ['$location', '$rootScope', '$http', '$cookieStore', '$q', 'md5', 'appConstants', '$log'];
 
     /* @ngInject */
-    function UsersService($location, $rootScope, $http, $cookieStore, $q, md5, appConstants) {
+    function UsersService($location, $rootScope, $http, $cookieStore, $q, md5, appConstants, $log) {
         var currentUser = {};
 
         if ($cookieStore.get('token')) {
@@ -28,54 +28,54 @@
         /**
         * Authenticate user and save token
         * @param  {Object}   user     - login info
-        * @param  {Function} callback - optional
         * @return {Promise}
         */
-        function login(user, callback) {
-            var cb = callback || angular.noop,
-                deferred = $q.defer();
-            $http.post(`${appConstants.serverBackEnd}user/auth`, {
-                username: user.username,
-                password: md5.createHash(user.password)
-            })
-            .success(function(data) {
+        function login(user) {
+            return $http.post(
+                `${appConstants.serverBackEnd}user/auth`,
+                {
+                    username: user.username,
+                    password: md5.createHash(user.password)
+                })
+                .then(loginComplete)
+                .catch(loginFailed);
+
+            function loginComplete(response) {
                 $cookieStore.put('token', {
-                    sessionId: data.sessionId,
-                    username: data.username
+                    sessionId: response.data.sessionId,
+                    username: response.data.username
                 });
-                currentUser = data;
-                deferred.resolve(data);
-                return cb();
-            })
-            .error(function(err) {
-                this.logout();
-                deferred.reject(err);
-                return cb(err);
-            }.bind(this));
-            return deferred.promise;
+                currentUser = response.data;
+                return response.data;
+            }
+
+            function loginFailed(error) {
+                $log.error('XHR Failed for login. ' + error.data.error);
+                return error.data;
+            }
         }
 
         /**
          * Delete access token and user info
-         * @param  {Function} callback - optional
          * @return {Promise}
          */
-        function logout(callback) {
-            var cb = callback || angular.noop,
-                deferred = $q.defer();
-            $http.get(`${appConstants.serverBackEnd}user/logout?sessionId=${this.getSessionId()}`)
-            .success(function(data) {
+        function logout() {
+            return $http.get(
+                `${appConstants.serverBackEnd}user/logout?sessionId=${this.getSessionId()}`
+                )
+                .then(logoutComplete)
+                .catch(logoutFailed);
+
+            function logoutComplete(response) {
                 $cookieStore.remove('token');
                 currentUser = {};
-                deferred.resolve(data);
-                return cb();
-            })
-            .error(function(err) {
-                this.logout();//ver
-                deferred.reject(err);
-                return cb(err);
-            }.bind(this));
-            return deferred.promise;
+                return response.data;
+            }
+
+            function logoutFailed(error) {
+                $log.error('XHR Failed for logout. ' + error.data.error);
+                return error.data;
+            }
         }
 
         /**
@@ -130,7 +130,7 @@
          * Get sessionId
          *  @return {String} sessionId
          */
-        function getSessionId(a) {
+        function getSessionId() {
             if (this.isLoggedIn()) {
                 return $cookieStore.get('token').sessionId;
             }
