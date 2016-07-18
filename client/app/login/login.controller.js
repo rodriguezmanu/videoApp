@@ -17,7 +17,7 @@
         vm.login = login;
 
         /**
-         * Login service in iorder to access to see videos list and detail
+         * Login service in order to access to see videos list and detail
          */
         function login() {
             vm.submitted = true;

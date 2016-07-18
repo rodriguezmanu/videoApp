@@ -50,7 +50,7 @@
             }
 
             function loginFailed(error) {
-                $log.error('XHR Failed for login. ' + error.data.error);
+                $log.error('XHR Failed for login. ' + error.data.message);
                 return error.data;
             }
         }
@@ -73,7 +73,7 @@
             }
 
             function logoutFailed(error) {
-                $log.error('XHR Failed for logout. ' + error.data.error);
+                $log.error('XHR Failed for logout. ' + error.data.message);
                 return error.data;
             }
         }

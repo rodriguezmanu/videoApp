@@ -21,7 +21,9 @@
                 vm.video = getSingleVideo.data;
                 getAverageRanking(getSingleVideo.data);
             } else {
-                $state.go('root.home.videos');
+                $state.go('root.home.videos', {}, {
+                    reload: true
+                });
             }
         }
 

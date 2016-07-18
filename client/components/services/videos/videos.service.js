@@ -42,7 +42,7 @@
             }
 
             function getVideosFailed(error) {
-                $log.error('XHR Failed for getVideos. ' + error.data.error);
+                $log.error('XHR Failed for getVideos. ' + error.data.message);
                 return error.data;
             }
         }
@@ -64,7 +64,7 @@
             }
 
             function getSingleVideoFailed(error) {
-                $log.error('XHR Failed for getSingleVideo. ' + error.data.error);
+                $log.error('XHR Failed for getSingleVideo. ' + error.data.message);
                 return error.data;
             }
         }
@@ -91,7 +91,7 @@
             }
 
             function setRatingFailed(error) {
-                $log.error('XHR Failed for setRating. ' + error.data.error);
+                $log.error('XHR Failed for setRating. ' + error.data.message);
                 return error.data;
             }
         }

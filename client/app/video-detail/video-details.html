@@ -6,7 +6,7 @@
                     <div class="heading-center">
                         <h2 class="section-heading">{{::vm.video.name}}</h2>
                         <hr>
-                        <videogular vg-auto-play="true">
+                        <videogular>
                             <vg-media vg-src="[{src: vm.serverBackEnd + vm.video.url, type: 'video/mp4'}]"></vg-media>
                             <vg-controls>
                                 <vg-play-pause-button></vg-play-pause-button>
