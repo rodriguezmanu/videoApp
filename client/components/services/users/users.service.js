@@ -41,11 +41,13 @@
                 .catch(loginFailed);
 
             function loginComplete(response) {
-                $cookieStore.put('token', {
-                    sessionId: response.data.sessionId,
-                    username: response.data.username
-                });
-                currentUser = response.data;
+                if (response.data.status === 'success') {
+                    $cookieStore.put('token', {
+                        sessionId: response.data.sessionId,
+                        username: response.data.username
+                    });
+                    currentUser = response.data;
+                }
                 return response.data;
             }
 
