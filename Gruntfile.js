@@ -195,7 +195,7 @@ module.exports = function(grunt) {
             constants: {
               appConstants: {
                 name: 'local',
-                serverBackEnd: 'https://video-platform-api.herokuapp.com/'
+                serverBackEnd: 'http://localhost:3000/'
               }
             }
           },
