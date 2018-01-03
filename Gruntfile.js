@@ -632,5 +632,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 
   grunt.registerTask('lint', ['jscs:all', 'jscs:app']);
-  grunt.registerTask('deploy-prod', ['clean', 'lint', 'test:client', 'ngconstant:prod', 'build']);
+  grunt.registerTask('deploy-prod', ['clean', 'lint', 'ngconstant:prod', 'build']);
 };
